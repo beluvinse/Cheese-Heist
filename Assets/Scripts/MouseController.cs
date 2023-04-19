@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class MouseController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] Controller controller;
+    [SerializeField] float speed;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        transform.position += controller.GetMovementInput() * speed * Time.deltaTime;
     }
 }
