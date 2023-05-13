@@ -7,6 +7,8 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     MouseController target;
 
+    [Range(1, 5)] [SerializeField] float height;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +18,6 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(target.transform.position.x, 1.5f, target.transform.position.z);
+        transform.position = new Vector3(target.transform.position.x, height, target.transform.position.z);
     }
 }
