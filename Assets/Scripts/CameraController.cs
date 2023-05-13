@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField]
-    MouseController target;
+    [SerializeField]MouseController target;
 
     [Range(1, 5)] [SerializeField] float height;
 
@@ -19,5 +18,7 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         transform.position = new Vector3(target.transform.position.x, height, target.transform.position.z);
+
+
     }
 }
