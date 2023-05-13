@@ -13,7 +13,7 @@ public class SteeringAgent : MonoBehaviour
     [SerializeField]
     protected float _maxForce;
 
-    protected void Move()
+    protected virtual void Move()
     {
         transform.position += _velocity * Time.deltaTime;
         transform.right = _velocity;
