@@ -28,13 +28,13 @@ public class Hunter : SteeringAgent
     private int _currentWaypoint;
 
     FiniteStateMachine _fsm;
-    HashSet<Boid> allBoids;
+    //HashSet<Boid> allBoids;
 
 
     private void Start()
     {
         energy = maxEnergy;
-        allBoids = BoidManager.instance.allBoids;
+        //allBoids = BoidManager.instance.allBoids;
 
         _fsm = new FiniteStateMachine();
 
@@ -90,23 +90,23 @@ public class Hunter : SteeringAgent
 
     public SteeringAgent CheckPursuit()
     {
-        foreach (Boid b in allBoids)
+        /*foreach (Boid b in allBoids)
         {
             if ((Vector3.Distance(b.transform.position, transform.position)) <= chaseRadius)
             {
                 return b;
             }
-        }
+        }*/
         return null;
     }
 
     public void DestroyBoid()
     {
-        var b = CheckPursuit().GetComponent<Boid>();
+        /*var b = CheckPursuit().GetComponent<Boid>();
         if (Vector3.Distance(b.transform.position, transform.position) <= destroyRadius)
         {
             b.DestroyThis();
-        }
+        }*/
     }
 
     public void EnergyDrain(float x)
