@@ -27,7 +27,7 @@ public class ChaseState : State
 
         var mouse = _cat.FOV.FieldOfViewCheck();
 
-        if (!mouse)
+        if (mouse == null)
         {
             _cat.Chase(mouse);
         }

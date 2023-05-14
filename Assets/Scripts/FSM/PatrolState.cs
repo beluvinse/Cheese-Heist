@@ -25,8 +25,9 @@ public class PatrolState : State
     public override void Update()
     {
         var mouse = _cat.FOV.FieldOfViewCheck();
-        if (mouse)
+        if (mouse != null)
         {
+            Debug.Log("ss");
             fsm.ChangeState(States.Chase);
         }
         else

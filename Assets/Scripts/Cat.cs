@@ -25,7 +25,7 @@ public class Cat : SteeringAgent
     private void Start()
     {
         _fsm = new FiniteStateMachine();
-        _fov = new FieldOfView(_chaseRadius, _targetMask, _obstacleMask);
+        _fov = GetComponent<FieldOfView>();
         _fsm.AddState(States.Patrol, new PatrolState(this));
         _fsm.AddState(States.Chase, new ChaseState(this));
 
@@ -72,12 +72,12 @@ public class Cat : SteeringAgent
     {
         Vector3 desired = default;
         Debug.Log("obstacle avoidance");
-        if (Physics.Raycast(transform.position + transform.up / 1.5f, _velocity, _chaseRadius, _obstacleMask))
+        if (Physics.Raycast(transform.position + transform.forward / 1.5f, _velocity, _chaseRadius, _obstacleMask))
         {
             desired = -transform.up;
             Debug.Log("if");
         }
-        else if (Physics.Raycast(transform.position - transform.up / 1.5f, _velocity, _chaseRadius, _obstacleMask))
+        else if (Physics.Raycast(transform.position - transform.forward / 1.5f, _velocity, _chaseRadius, _obstacleMask))
         {
             desired = transform.up;
             Debug.Log("else if");
@@ -97,6 +97,8 @@ public class Cat : SteeringAgent
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, _destroyRadius);
+        //Gizmos.DrawLine(transform.position,transform.position + transform.forward / 1.5f);
+        //Gizmos.DrawLine(transform.position,transform.position - transform.forward / 1.5f);
 
         
     }
