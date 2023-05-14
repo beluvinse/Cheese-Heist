@@ -9,19 +9,44 @@ public class SaveWithJson : MonoBehaviour
 {
     string path;
     [SerializeField] SaveData saveData = new SaveData();
+    public PlayerData playerData;
 
     void Awake()
     {
         path = Application.persistentDataPath + "/data.json";
-
         Debug.Log(path);
     }
 
-    public void SaveGame()
+    public void SetHearts(int val)
     {
+        saveData.lives = val;
+    }
+
+    public void SetCheetos(int val)
+    {
+        saveData.cheetos = val;
+    }
+
+    public int GetHearts()
+    {
+        path = Application.persistentDataPath + "/data.json";
+        LoadGame();
+        return saveData.lives;
+    }
+    
+    public int GetCheetos()
+    {
+        path = Application.persistentDataPath + "/data.json";
+        LoadGame();
+        return saveData.cheetos;
+    }
+
+    public void SaveGame()
+    {   
+        saveData.lives = playerData.GetHearts();
+        saveData.cheetos = playerData.GetCheetos();
         string json = JsonUtility.ToJson(saveData, true);
         File.WriteAllText(path, json);
-
         Debug.Log(json);
     }
 

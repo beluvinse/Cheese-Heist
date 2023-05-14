@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public PlayerData playerData;
 
     public TMP_Text cheetosText;
+    public TMP_Text cheetosText2;
     public TMP_Text heartsText;
 
     private void Update()
@@ -26,6 +27,7 @@ public class UIManager : MonoBehaviour
     {
         var cheetos = playerData.GetCheetos();
         cheetosText.text = "" + cheetos;
+        cheetosText2.text = "" + cheetos;
     }
 
 }

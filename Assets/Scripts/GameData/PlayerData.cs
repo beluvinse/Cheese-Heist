@@ -9,6 +9,7 @@ public class PlayerData : MonoBehaviour
     [SerializeField] int _hearts;
     [SerializeField] int _maxHearts = 100;
     [SerializeField] int _cheetos;
+    public SaveWithJson savedData;
 
     public int GetHearts()
     {
@@ -19,11 +20,13 @@ public class PlayerData : MonoBehaviour
     {
         //_hearts += Mathf.Clamp(val, 0, _maxHearts);
         _hearts += val;
+        savedData.SetHearts(_hearts);
     }
 
     public void SetCheetos(int val)
     {
         _cheetos = val;
+        savedData.SetCheetos(_cheetos);
     }
 
     public int GetCheetos()
@@ -42,7 +45,9 @@ public class PlayerData : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
 
+        _hearts = savedData.GetHearts();
+        _cheetos = savedData.GetCheetos();
+    }
 
 }
