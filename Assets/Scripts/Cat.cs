@@ -27,6 +27,7 @@ public class Cat : SteeringAgent
         _fsm = new FiniteStateMachine();
         _fov = new FieldOfView(_chaseRadius, _targetMask, _obstacleMask);
         _fsm.AddState(States.Patrol, new PatrolState(this));
+        _fsm.AddState(States.Chase, new ChaseState(this));
 
 
 
@@ -51,6 +52,10 @@ public class Cat : SteeringAgent
         transform.forward = _velocity;
     }
 
+    public void Chase (SteeringAgent agent)
+    {
+        AddForce( Pursuit(agent));
+    }
 
     public void FollowWaypoints()
     {

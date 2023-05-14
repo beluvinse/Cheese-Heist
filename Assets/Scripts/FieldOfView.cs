@@ -35,6 +35,7 @@ public class FieldOfView : MonoBehaviour
 
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
                 {
+                    Debug.Log("oh un mouse");
                     seesEnemy = true;
                     return Target.GetComponent<MouseController>();
                 }

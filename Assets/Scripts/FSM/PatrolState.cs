@@ -7,11 +7,9 @@ public class PatrolState : State
 
     private Cat _cat;
 
-
     public PatrolState(Cat c)
     {
         _cat = c;
-
     }
 
     public override void OnEnter()
@@ -26,9 +24,19 @@ public class PatrolState : State
 
     public override void Update()
     {
-        _cat.Move();
-        _cat.FollowWaypoints();
-        //_cat.ObstacleAvoidance();
+        var mouse = _cat.FOV.FieldOfViewCheck();
+        if (mouse)
+        {
+            fsm.ChangeState(States.Chase);
+        }
+        else
+        {
+            _cat.Move();
+            _cat.FollowWaypoints();
+            //_cat.ObstacleAvoidance();
+
+        }
+
     }
 
 
