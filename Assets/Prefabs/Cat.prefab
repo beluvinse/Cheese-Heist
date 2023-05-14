@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9103459349432507007}
   - component: {fileID: 9103459349432507006}
   - component: {fileID: 9103459349432506993}
+  - component: {fileID: 8797648478582436816}
   - component: {fileID: 9103459349432507004}
   m_Layer: 0
   m_Name: Cat
@@ -132,19 +133,28 @@ MonoBehaviour:
   _maxSpeed: 0.5
   _maxForce: 0.0029
   waypointRadius: 0.5
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  Waypoints: {fileID: 0}
+  _waypoints: []
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 64
   _chaseRadius: 0
   _destroyRadius: 0
+--- !u!114 &8797648478582436816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8256388782068404715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a11a849f4df569244aa0dc3cfbde57e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 1.5
+  angle: 100
+  seesEnemy: 0
 --- !u!195 &9103459349432507004
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -164,6 +174,6 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 0.1
-  m_BaseOffset: 0.01
+  m_BaseOffset: 4.01
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4

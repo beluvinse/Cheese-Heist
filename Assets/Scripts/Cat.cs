@@ -8,24 +8,29 @@ public class Cat : SteeringAgent
     public float waypointRadius;
     public Transform Waypoints;
     public List<Transform> _waypoints = new List<Transform>();
-    public LayerMask obstacleLayer;
-
-    [Header("Chase")]
-    [SerializeField] float _chaseRadius;
-    [SerializeField] float _destroyRadius;
-
     private int _currentWaypoint;
+
     FiniteStateMachine _fsm;
+
+    [Header("Field of View")]
+    FieldOfView _fov;
+    [SerializeField] LayerMask _targetMask;
+    [SerializeField] LayerMask _obstacleMask;
+    [Range(0, 2)] [SerializeField] float _chaseRadius;
+    float _destroyRadius { get { return _chaseRadius / 2; } }
+
+    public FieldOfView FOV { get { return _fov; } }
+
 
     private void Start()
     {
         _fsm = new FiniteStateMachine();
+        _fov = new FieldOfView(_chaseRadius, _targetMask, _obstacleMask);
+        _fsm.AddState(States.Patrol, new PatrolState(this));
 
-        _fsm.AddState(States.Chase, new PatrolState(this));
 
 
-
-        _fsm.ChangeState(States.Chase);
+        _fsm.ChangeState(States.Patrol);
 
         for (int i = 0; i < Waypoints.childCount; i++)
         {
@@ -62,12 +67,12 @@ public class Cat : SteeringAgent
     {
         Vector3 desired = default;
         Debug.Log("obstacle avoidance");
-        if (Physics.Raycast(transform.position + transform.up / 1.5f, _velocity, _chaseRadius, obstacleLayer))
+        if (Physics.Raycast(transform.position + transform.up / 1.5f, _velocity, _chaseRadius, _obstacleMask))
         {
             desired = -transform.up;
             Debug.Log("if");
         }
-        else if (Physics.Raycast(transform.position - transform.up / 1.5f, _velocity, _chaseRadius, obstacleLayer))
+        else if (Physics.Raycast(transform.position - transform.up / 1.5f, _velocity, _chaseRadius, _obstacleMask))
         {
             desired = transform.up;
             Debug.Log("else if");
@@ -88,10 +93,7 @@ public class Cat : SteeringAgent
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, _destroyRadius);
 
-        Vector3 origin1 = transform.position + transform.up / 1.5f;
-        Vector3 origin2 = transform.position - transform.up / 1.5f;
-        Gizmos.DrawLine(origin1, origin1 + transform.right * _chaseRadius);
-        Gizmos.DrawLine(origin2, origin2 + transform.right * _chaseRadius);
+        
     }
 
 }
