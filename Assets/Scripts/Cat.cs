@@ -15,10 +15,19 @@ public class Cat : SteeringAgent
     [SerializeField] float _destroyRadius;
 
     private int _currentWaypoint;
+    FiniteStateMachine _fsm;
 
     private void Start()
     {
-        for(int i = 0; i < Waypoints.childCount; i++)
+        _fsm = new FiniteStateMachine();
+
+        _fsm.AddState(States.Chase, new PatrolState(this));
+
+
+
+        _fsm.ChangeState(States.Chase);
+
+        for (int i = 0; i < Waypoints.childCount; i++)
         {
             _waypoints.Add(Waypoints.GetChild(i));
         }
@@ -27,12 +36,11 @@ public class Cat : SteeringAgent
 
     private void Update()
     {
-        Move();
-        FollowWaypoints();
+        _fsm.Update();
         //ObstacleAvoidance();
     }
 
-    protected override void Move()
+    public override void Move()
     {
         transform.position += _velocity * Time.deltaTime;
         transform.forward = _velocity;
@@ -50,7 +58,7 @@ public class Cat : SteeringAgent
             _currentWaypoint = 0;
     }
 
-    Vector3 ObstacleAvoidance()
+    public Vector3 ObstacleAvoidance()
     {
         Vector3 desired = default;
         Debug.Log("obstacle avoidance");

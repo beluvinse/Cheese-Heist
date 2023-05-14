@@ -38,11 +38,11 @@ public class Hunter : SteeringAgent
 
         _fsm = new FiniteStateMachine();
 
-        _fsm.AddState(HunterStates.Rest, new RestState(this, restRegen));
-        _fsm.AddState(HunterStates.Patrol, new PatrolState(this, patrolCost));
-        _fsm.AddState(HunterStates.Chase, new ChaseState(this, chaseCost));
+        //_fsm.AddState(HunterStates.Rest, new RestState(this, restRegen));
+        //_fsm.AddState(HunterStates.Patrol, new PatrolState(this, patrolCost));
+        //_fsm.AddState(HunterStates.Chase, new ChaseState(this, chaseCost));
 
-        _fsm.ChangeState(HunterStates.Patrol);
+        //_fsm.ChangeState(HunterStates.Patrol);
     }
 
     private void Update()

@@ -36,12 +36,12 @@ public class ChaseState : State
         else if (_hunter.CheckPursuit() == null)
         {
 
-            fsm.ChangeState(HunterStates.Patrol);
+            //fsm.ChangeState(HunterStates.Patrol);
         }
         else
         {
 
-            fsm.ChangeState(HunterStates.Rest);
+           // fsm.ChangeState(HunterStates.Rest);
         }
     }
 

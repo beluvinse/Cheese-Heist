@@ -6,10 +6,10 @@ public class FiniteStateMachine
 {
     State _currentState;
 
-    Dictionary<HunterStates, State> _allStates = new Dictionary<HunterStates, State>();
+    Dictionary<States, State> _allStates = new Dictionary<States, State>();
 
 
-    public void AddState(HunterStates key, State state)
+    public void AddState(States key, State state)
     {
         if (state == null) return;
 
@@ -17,7 +17,7 @@ public class FiniteStateMachine
         state.fsm = this;
     }
 
-    public void ChangeState(HunterStates key)
+    public void ChangeState(States key)
     {
         if (!_allStates.ContainsKey(key)) return;
 
