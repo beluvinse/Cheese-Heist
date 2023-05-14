@@ -9,6 +9,7 @@ public class MenuManager : MonoBehaviour
     public GameObject levelsPanel;
     public GameObject shopPanel;
     public GameObject optionsPanel;
+    public PlayerData playerData;
 
 
     public void LevelPanel()
@@ -35,6 +36,12 @@ public class MenuManager : MonoBehaviour
         levelsPanel.SetActive(false);
         optionsPanel.SetActive(false);
         generalPanel.SetActive(true);
+    }
+
+    public void StartGame()
+    {
+        playerData.AddHearts(-1);
+        SceneManager.LoadScene("SampleScene");
     }
 
     public void ExitGame()
