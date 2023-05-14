@@ -4,37 +4,40 @@ using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
 {
-    float range;
-    float angle;
+
+    [Header("Field of View")]
+    [SerializeField] LayerMask _targetMask;
+    [SerializeField] LayerMask _obstacleMask;
+    [Range(0, 2)] [SerializeField] float _chaseRadius;
+    float _angle = 100f;
 
     public bool seesEnemy;
 
-    private LayerMask targetMask;
-    private LayerMask obstructionMask;
 
 
-    public FieldOfView(float r, LayerMask tMask, LayerMask obsMask)
+    /*public FieldOfView(float r, LayerMask tMask, LayerMask obsMask)
     {
-        range = r;
+        _range = r;
         targetMask = tMask;
         obstructionMask = obsMask;
-        angle = 100;
-    }
+        _angle = 100;
+    }*/
 
     public MouseController FieldOfViewCheck()
     {
-        Collider[] RangeChecks = Physics.OverlapSphere(transform.position, range, targetMask);
+        Collider[] RangeChecks = Physics.OverlapSphere(transform.position, _chaseRadius, _targetMask);
         if (RangeChecks.Length != 0)
         {
             Transform Target = RangeChecks[0].transform;
             Vector3 directionToTarget = (Target.position - transform.position).normalized;
 
-            if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
+            if (Vector3.Angle(transform.forward, directionToTarget) < _angle / 2)
             {
                 float distanceToTarget = Vector3.Distance(transform.position, Target.position);
 
-                if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
+                if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, ~_obstacleMask))
                 {
+                    Debug.Log("oh un mouse");
                     seesEnemy = true;
                     return Target.GetComponent<MouseController>();
                 }
@@ -52,11 +55,11 @@ public class FieldOfView : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Vector3 viewAngleA = DirectionFromAngle(transform.eulerAngles.y, -angle / 2);
-        Vector3 viewAngleB = DirectionFromAngle(transform.eulerAngles.y, angle / 2);
+        Vector3 viewAngleA = DirectionFromAngle(transform.eulerAngles.y, -_angle / 2);
+        Vector3 viewAngleB = DirectionFromAngle(transform.eulerAngles.y, _angle / 2);
         Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, transform.position + viewAngleA * range);
-        Gizmos.DrawLine(transform.position, transform.position + viewAngleB * range);
+        Gizmos.DrawLine(transform.position, transform.position + viewAngleA * _chaseRadius);
+        Gizmos.DrawLine(transform.position, transform.position + viewAngleB * _chaseRadius);
         
     }
 

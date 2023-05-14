@@ -5,18 +5,16 @@ using UnityEngine;
 public class ChaseState : State
 {
 
-    Hunter _hunter;
-    float _cost;
+    Cat _cat;
 
-    public ChaseState(Hunter h, float cost)
+    public ChaseState(Cat c)
     {
-        _hunter = h;
-        _cost = cost;
+        _cat = c;
     }
 
     public override void OnEnter()
     {
-        _hunter.sprite.color = Color.red;
+        Debug.Log("!!!! mouse");
     }
 
     public override void OnExit()
@@ -27,21 +25,15 @@ public class ChaseState : State
     public override void Update()
     {
 
-        if (_hunter.CheckPursuit() && _hunter.energy > 0 )
-        {
-            _hunter.Chase(_hunter.CheckPursuit());
-            _hunter.EnergyDrain(_cost);
-            _hunter.DestroyBoid();
-        }
-        else if (_hunter.CheckPursuit() == null)
-        {
+        var mouse = _cat.FOV.FieldOfViewCheck();
 
-            //fsm.ChangeState(HunterStates.Patrol);
+        if (mouse == null)
+        {
+            _cat.Chase(mouse);
         }
         else
         {
-
-           // fsm.ChangeState(HunterStates.Rest);
+            fsm.ChangeState(States.Patrol);
         }
     }
 
