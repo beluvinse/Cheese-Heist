@@ -7,6 +7,7 @@ public class CameraController : MonoBehaviour
     [SerializeField]MouseController target;
 
     [Range(1, 5)] [SerializeField] float height;
+    [Range(0, 5)] [SerializeField] float center;
 
     float _startingPlayerHeight;
 
@@ -19,6 +20,6 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(target.transform.position.x, height + (target.transform.position.y - _startingPlayerHeight), target.transform.position.z);
+        transform.position = new Vector3(target.transform.position.x, height + (target.transform.position.y - _startingPlayerHeight), target.transform.position.z - center);
     }
 }

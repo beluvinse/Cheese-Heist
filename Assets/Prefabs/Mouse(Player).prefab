@@ -1,5 +1,103 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &322862480
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 322862481}
+  - component: {fileID: 322862484}
+  - component: {fileID: 322862483}
+  - component: {fileID: 322862482}
+  m_Layer: 0
+  m_Name: Cylinder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &322862481
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322862480}
+  m_LocalRotation: {x: -0.24605538, y: 0.1640806, z: -0.66291535, w: 0.68780637}
+  m_LocalPosition: {x: 0.378, y: 0.448, z: -0.167}
+  m_LocalScale: {x: 1, y: 0.9110613, z: 1.2393}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5057560643676479566}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: -6.946, y: 33.781, z: -90}
+--- !u!33 &322862484
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322862480}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &322862483
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322862480}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &322862482
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322862480}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &346242937619313392
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,6 +622,8 @@ GameObject:
   - component: {fileID: 5057560643676479566}
   - component: {fileID: 4736284765637330848}
   - component: {fileID: 4736284765637330877}
+  - component: {fileID: 5086685737330237396}
+  - component: {fileID: 1888298872}
   m_Layer: 0
   m_Name: Mouse(Player)
   m_TagString: Untagged
@@ -538,13 +638,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5583267507237911284}
-  m_LocalRotation: {x: -0, y: -0.9705309, z: -0, w: 0.24097662}
+  m_LocalRotation: {x: 0, y: -0.97053176, z: 0, w: 0.24097343}
   m_LocalPosition: {x: 1.446, y: 2.948, z: -3.47}
-  m_LocalScale: {x: 0.12, y: 0.12496, z: 0.12496}
+  m_LocalScale: {x: 0.11999999, y: 0.12496, z: 0.12495999}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4215586718482362576}
   - {fileID: 2938859140005481657}
+  - {fileID: 322862481}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -152.112, z: 0}
@@ -580,8 +681,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edd59eb1ebfeaf84d87865a44c4c11a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxSpeed: 1.5
+  _maxForce: 0.0501
   controller: {fileID: 0}
-  speed: 2.5
+  speed: 1.5
+--- !u!114 &5086685737330237396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5583267507237911284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ac742320cd72fb48bb7187a96c53e60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &1888298872
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5583267507237911284}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 2
 --- !u!1 &5911582698244770754
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,7 +755,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2938859140005481657}
   - component: {fileID: 3709116140116233604}
-  - component: {fileID: 4736284765637330849}
   m_Layer: 0
   m_Name: Maus
   m_TagString: Untagged
@@ -713,20 +843,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.002622671, y: 0.0023880922, z: 0.000021742191}
     m_Extent: {x: 0.00725638, y: 0.0114038605, z: 0.004630663}
   m_DirtyAABB: 0
---- !u!136 &4736284765637330849
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6215580226140965232}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.013423732
-  m_Height: 0.04959943
-  m_Direction: 1
-  m_Center: {x: -0.0000036304723, y: -0.0067976536, z: -0.0018449369}
 --- !u!1 &6600612396093341587
 GameObject:
   m_ObjectHideFlags: 0

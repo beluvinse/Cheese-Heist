@@ -6,7 +6,8 @@ public class Cat : SteeringAgent
 {
     [Header("Waypoints")]
     public float waypointRadius;
-    public Transform[] waypoints;
+    public Transform Waypoints;
+    public List<Transform> _waypoints = new List<Transform>();
     public LayerMask obstacleLayer;
 
     [Header("Chase")]
@@ -14,6 +15,14 @@ public class Cat : SteeringAgent
     [SerializeField] float _destroyRadius;
 
     private int _currentWaypoint;
+
+    private void Start()
+    {
+        for(int i = 0; i < Waypoints.childCount; i++)
+        {
+            _waypoints.Add(Waypoints.GetChild(i));
+        }
+    }
 
 
     private void Update()
@@ -32,12 +41,12 @@ public class Cat : SteeringAgent
 
     public void FollowWaypoints()
     {
-        AddForce(Seek(waypoints[_currentWaypoint].position));
+        AddForce(Seek(_waypoints[_currentWaypoint].position));
 
-        if (Vector3.Distance(waypoints[_currentWaypoint].position, transform.position) <= waypointRadius)
+        if (Vector3.Distance(_waypoints[_currentWaypoint].position, transform.position) <= waypointRadius)
             _currentWaypoint++;
 
-        if (_currentWaypoint >= waypoints.Length)
+        if (_currentWaypoint >= _waypoints.Count)
             _currentWaypoint = 0;
     }
 
@@ -63,7 +72,7 @@ public class Cat : SteeringAgent
     void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(waypoints[_currentWaypoint].position, waypointRadius);
+        //Gizmos.DrawWireSphere(_waypoints[_currentWaypoint].position, waypointRadius);
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, _chaseRadius);

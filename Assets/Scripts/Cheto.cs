@@ -1,17 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class Cheto : MonoBehaviour
+public class Cheto : MonoBehaviour, ICollectable
 {
     [SerializeField] float value;
 
-    void Start()
+
+    public static event Action OnChetoCollected;
+
+    public void Collect()
     {
-        
+        Debug.Log("Yum, chetos");
+        OnChetoCollected?.Invoke();
+        Destroy(this.gameObject);
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         transform.Rotate(Vector3.up * value * Time.deltaTime, Space.Self);
