@@ -6542,9 +6542,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bacdbeb1745c304aaa59c76242a9772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hearts: 10
+  _hearts: 20
   _maxHearts: 20
-  _cheetos: 50
+  _cheetos: 0
   savedData: {fileID: 1929876623}
 --- !u!4 &1470541299
 Transform:

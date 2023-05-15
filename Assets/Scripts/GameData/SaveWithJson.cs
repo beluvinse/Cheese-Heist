@@ -70,7 +70,7 @@ public class SaveWithJson : MonoBehaviour
 
     public void Delete()
     {
-        FileUtil.DeleteFileOrDirectory(path);
+        //FileUtil.DeleteFileOrDirectory(path);
         saveData.cheetos = 0;
         PlayerData.Instance.SetCheetos(saveData.cheetos);
         saveData.lives = PlayerData.Instance.GetMaxHearts();
