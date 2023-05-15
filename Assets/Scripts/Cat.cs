@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Cat : SteeringAgent
 {
+    public MouseController mouse;
+
     [Header("Waypoints")]
     public float waypointRadius;
     public Transform Waypoints;
@@ -22,8 +24,13 @@ public class Cat : SteeringAgent
     public FieldOfView FOV { get { return _fov; } }
 
 
+    private float _baseSpeed;
+
+    private bool _isChasing;
+
     private void Start()
     {
+        _baseSpeed = _maxSpeed;
         _fsm = new FiniteStateMachine();
         _fov = GetComponent<FieldOfView>();
         _fsm.AddState(States.Patrol, new PatrolState(this));
@@ -37,6 +44,7 @@ public class Cat : SteeringAgent
         {
             _waypoints.Add(Waypoints.GetChild(i));
         }
+
     }
 
 
@@ -44,6 +52,17 @@ public class Cat : SteeringAgent
     {
         _fsm.Update();
         //ObstacleAvoidance();
+        _isChasing = _fov.seesEnemy;
+    }
+
+    public void BuffSpeed(float val)
+    {
+        _maxSpeed *= val;
+    }
+
+    public void BaseSpeed()
+    {
+        _maxSpeed = _baseSpeed;
     }
 
     public override void Move()
@@ -54,7 +73,7 @@ public class Cat : SteeringAgent
 
     public void Chase (SteeringAgent agent)
     {
-        AddForce( Pursuit(agent));
+        AddForce(Pursuit(agent));
     }
 
     public void FollowWaypoints()
@@ -85,6 +104,15 @@ public class Cat : SteeringAgent
         else return desired;
 
         return CalculateSteering(desired.normalized * _maxSpeed);
+    }
+
+    public void CheckDestroyDistance()
+    {
+        if(Vector3.Distance(transform.position, mouse.transform.position) < _destroyRadius)
+        {
+            Debug.Log("morfadium");
+            mouse.gameObject.SetActive(false);
+        }
     }
 
     void OnDrawGizmos()

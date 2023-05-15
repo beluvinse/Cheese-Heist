@@ -15,6 +15,7 @@ public class PatrolState : State
     public override void OnEnter()
     {
         Debug.Log("Momento:Waypoints");
+        _cat.BaseSpeed();
     }
 
     public override void OnExit()
@@ -25,9 +26,10 @@ public class PatrolState : State
     public override void Update()
     {
         var mouse = _cat.FOV.FieldOfViewCheck();
+        Debug.Log("Patrol" + mouse);
         if (mouse != null)
         {
-            Debug.Log("ss");
+
             fsm.ChangeState(States.Chase);
         }
         else

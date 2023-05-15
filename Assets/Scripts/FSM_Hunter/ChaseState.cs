@@ -15,6 +15,7 @@ public class ChaseState : State
     public override void OnEnter()
     {
         Debug.Log("!!!! mouse");
+        _cat.BuffSpeed(2);
     }
 
     public override void OnExit()
@@ -26,14 +27,18 @@ public class ChaseState : State
     {
 
         var mouse = _cat.FOV.FieldOfViewCheck();
+        Debug.Log("Chase" + mouse);
+
 
         if (mouse == null)
         {
-            _cat.Chase(mouse);
+            fsm.ChangeState(States.Patrol);
         }
         else
         {
-            fsm.ChangeState(States.Patrol);
+            _cat.Move();
+            _cat.Chase(mouse.GetComponent<SteeringAgent>());
+            _cat.CheckDestroyDistance();
         }
     }
 
