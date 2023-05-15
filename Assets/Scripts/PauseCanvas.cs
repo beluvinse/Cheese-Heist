@@ -19,8 +19,8 @@ public class PauseCanvas : MonoBehaviour
     public void BackToMenu()
     {
         SaveWithJson.Instance.SaveGame();
-        SceneManager.LoadScene("Menu");
         Time.timeScale = 1f;
+        SceneManager.LoadScene("Menu");
     }
 
     public void BackToGame()

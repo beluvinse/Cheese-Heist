@@ -13,6 +13,10 @@ public class CanvasManager : MonoBehaviour
     public GameObject winCanvas;
     public GameObject loseCanvas;
 
+    private void Start()
+    {
+        ShowHearts();
+    }
 
     private void Update()
     {
@@ -24,8 +28,14 @@ public class CanvasManager : MonoBehaviour
 
     public void RestartLevel()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (PlayerData.Instance.GetHearts() > 0)
+        {
+            Time.timeScale = 1f;
+            PlayerData.Instance.AddHearts(-1);
+            SaveWithJson.Instance.SaveGame();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+       
     }
 
     public void ShowHearts()

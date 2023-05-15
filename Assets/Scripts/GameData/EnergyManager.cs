@@ -7,16 +7,17 @@ using TMPro;
 
 public class EnergyManager : MonoBehaviour
 {
+  
     [SerializeField] private TMP_Text _textHearts;
     [SerializeField] private TMP_Text _textHearts2;
     [SerializeField] private TMP_Text _textTimer;
     [SerializeField] private TMP_Text _textTimer2;
     [SerializeField] private int _maxHearts;
-    
+
 
     private DateTime _nextHeartTime;
     private DateTime _lastAddedTime;
-    private int _restoreDuration = 30; //10 segundos para probar
+    private int _restoreDuration = 30;
 
     public UIManager ui;
 
@@ -61,7 +62,7 @@ public class EnergyManager : MonoBehaviour
             {
                 if (PlayerData.Instance.GetHearts() < _maxHearts)
                 {
-                    isAdding = true;           
+                    isAdding = true;
                     PlayerData.Instance.AddHearts(1);
                     DateTime timeToAdd = _lastAddedTime > counter ? _lastAddedTime : counter;
                     counter = AddDuration(timeToAdd, _restoreDuration);
@@ -92,13 +93,13 @@ public class EnergyManager : MonoBehaviour
             _textTimer2.text = "Full!";
             return;
         }
-      
+
 
         TimeSpan t = _nextHeartTime - DateTime.Now;
         string value = String.Format("{0}:{1:D2}:{2:D2}", (int)t.TotalHours, (int)t.TotalMinutes, (int)t.TotalSeconds);
         _textTimer.text = value;
         _textTimer2.text = "More in " + value;
-        
+
     }
 
     private void UpdateHearts()
