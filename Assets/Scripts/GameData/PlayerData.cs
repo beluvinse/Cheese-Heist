@@ -15,6 +15,12 @@ public class PlayerData : MonoBehaviour
     {
         return _hearts;
     }
+
+    public void SetHearts(int val)
+    {
+         _hearts = val;
+    }
+
     
     public int GetMaxHearts()
     {
