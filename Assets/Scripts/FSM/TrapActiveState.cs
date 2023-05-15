@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 public class TrapActiveState : State
 {
     Cat _cat;
+
+    public static event Action OnTrapActive;
 
 
     public TrapActiveState(Cat c)
@@ -15,6 +18,7 @@ public class TrapActiveState : State
     public override void OnEnter()
     {
         Debug.Log("mouse trapped");
+        OnTrapActive?.Invoke();
     }
 
     public override void OnExit()

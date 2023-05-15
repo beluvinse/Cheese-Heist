@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
 
     AudioSource _audioSource;
 
-    [SerializeField] AudioClip chetoSound;
+    [SerializeField] AudioClip chetoSound, trapSound;
 
     private void Awake()
     {
@@ -25,11 +25,13 @@ public class AudioManager : MonoBehaviour
     private void OnEnable()
     {
         Cheto.OnChetoCollected += PlayChetoSound;
+        TrapActiveState.OnTrapActive += PlayTrapSound;
     }
 
     private void OnDisable()
     {
         Cheto.OnChetoCollected -= PlayChetoSound;
+        TrapActiveState.OnTrapActive -= PlayTrapSound;
     }
 
 
@@ -42,5 +44,10 @@ public class AudioManager : MonoBehaviour
     public void PlayChetoSound()
     {
         _audioSource.PlayOneShot(chetoSound);
+    }
+
+    public void PlayTrapSound()
+    {
+        _audioSource.PlayOneShot(trapSound);
     }
 }
