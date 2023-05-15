@@ -10,6 +10,13 @@ public class UIManager : MonoBehaviour
     public TMP_Text cheetosText;
     public TMP_Text cheetosText2;
     public TMP_Text heartsText;
+    public TMP_Text heartsText2;
+    int _maxHearts;
+
+    private void Start()
+    {
+        _maxHearts = playerData.GetMaxHearts();
+    }
 
     private void Update()
     {
@@ -21,6 +28,7 @@ public class UIManager : MonoBehaviour
     {
         var hearts = playerData.GetHearts();
         heartsText.text = "" + hearts;
+        heartsText2.text = "" + hearts + "/" + _maxHearts;
     }
 
     public void UpdateCheetos()

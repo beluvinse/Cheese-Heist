@@ -15,11 +15,19 @@ public class PlayerData : MonoBehaviour
     {
         return _hearts;
     }
+    
+    public int GetMaxHearts()
+    {
+        return _maxHearts;
+    }
 
     public void AddHearts(int val)
     {
-        //_hearts += Mathf.Clamp(val, 0, _maxHearts);
-        _hearts += val;
+       _hearts = Mathf.Clamp(_hearts + val, 0, _maxHearts);
+        
+        /*_hearts += val;
+        if(_hearts >= _maxHearts)
+            _hearts = _maxHearts;*/
         savedData.SetHearts(_hearts);
     }
 

@@ -25,8 +25,6 @@ public class EnergyManager : MonoBehaviour
 
     private void Start()
     {
-        
-        //_totalHearts = _maxHearts;
         Load();
         StartCoroutine(RestoreRoutine());
     }
@@ -37,11 +35,11 @@ public class EnergyManager : MonoBehaviour
             return;
 
         _totalHearts--;
-        UpdateHearts();
+        //UpdateHearts();
 
         if (!_restoring)
         {
-            if(_totalHearts+1 == _maxHearts)
+            if (_totalHearts + 1 == _maxHearts)
             {
                 _nextHeartTime = AddDuration(DateTime.Now, _restoreDuration);
             }
@@ -52,7 +50,7 @@ public class EnergyManager : MonoBehaviour
     private IEnumerator RestoreRoutine()
     {
         UpdateTimer();
-        UpdateHearts();
+        //UpdateHearts();
         _restoring = true;
 
         while (_totalHearts < _maxHearts)
@@ -73,13 +71,13 @@ public class EnergyManager : MonoBehaviour
                 else
                     break;
             }
-            if(isAdding)
+            if (isAdding)
             {
                 _lastAddedTime = DateTime.Now;
                 _nextHeartTime = counter;
             }
 
-            UpdateHearts();
+            //UpdateHearts();
             UpdateTimer();
             Save();
             yield return null;
@@ -90,17 +88,19 @@ public class EnergyManager : MonoBehaviour
 
     private void UpdateTimer()
     {
-       if(_totalHearts >= _maxHearts)
+        if (_totalHearts >= _maxHearts)
         {
             _textTimer.text = "Full";
             _textTimer2.text = "Full!";
             return;
         }
+      
 
-        TimeSpan t = _nextHeartTime - DateTime.Now;
-        string value = String.Format("{0}:{1:D2}:{2:D2}",(int) t.TotalHours, (int)t.TotalMinutes, (int)t.TotalSeconds);
+         TimeSpan t = _nextHeartTime - DateTime.Now;
+        string value = String.Format("{0}:{1:D2}:{2:D2}", (int)t.TotalHours, (int)t.TotalMinutes, (int)t.TotalSeconds);
         _textTimer.text = value;
         _textTimer2.text = "More in " + value;
+        
     }
 
     private void UpdateHearts()

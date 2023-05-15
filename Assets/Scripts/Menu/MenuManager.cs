@@ -44,7 +44,7 @@ public class MenuManager : MonoBehaviour
         {
             heartManager.UseHeart();
             playerData.AddHearts(-1);
-            //SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("SampleScene");
 
         }
     }
