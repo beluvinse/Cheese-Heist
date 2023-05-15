@@ -7,25 +7,41 @@ public class MouseController : SteeringAgent
     [SerializeField] Controller controller;
     [SerializeField] float speed;
 
-    Rigidbody _rb;
+    [SerializeField] bool _isRooted;
+
+    public bool isRooted { get { return _isRooted; } }
 
     Vector3 input;
 
-    private void Start()
-    {
-        _rb = GetComponent<Rigidbody>();
-    }
-
     void FixedUpdate()
     {
-        input = controller.GetMovementInput();
-        //transform.position += controller.GetMovementInput() * speed * Time.deltaTime;
-        if (input != Vector3.zero)
+
+        if (!_isRooted) 
         {
-            AddForce(controller.GetMovementInput() * speed);
-            Move();
-        } 
+            input = controller.GetMovementInput();
+            //transform.position += controller.GetMovementInput() * speed * Time.deltaTime;
+            if (input != Vector3.zero)
+            {
+                AddForce(controller.GetMovementInput() * speed);
+                Move();
+            }
+        }
+        else
+        {
+            input = Vector3.zero;
+        }
+            
     }
 
+    public void Trapped(float time)
+    {
+        StartCoroutine(MouseTrapped(time));
+    }
 
+    IEnumerator MouseTrapped(float time)
+    {
+        _isRooted = true;
+        yield return new WaitForSeconds(time);
+        _isRooted = false;
+    }
 }

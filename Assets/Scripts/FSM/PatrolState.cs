@@ -25,20 +25,27 @@ public class PatrolState : State
 
     public override void Update()
     {
-        var mouse = _cat.FOV.FieldOfViewCheck();
-        Debug.Log("Patrol" + mouse);
-        if (mouse != null)
-        {
+        var mouseFound = _cat.FOV.FieldOfViewCheck();
 
-            fsm.ChangeState(States.Chase);
+        if (!_cat.mouse.isRooted )
+        {
+            if (mouseFound != null)
+            {
+                fsm.ChangeState(States.Chase);
+            }
+            else
+            {
+                _cat.Move();
+                _cat.FollowWaypoints();
+                //_cat.ObstacleAvoidance();
+
+            }
         }
         else
         {
-            _cat.Move();
-            _cat.FollowWaypoints();
-            //_cat.ObstacleAvoidance();
-
+            fsm.ChangeState(States.MouseTrapped);
         }
+            
 
     }
 

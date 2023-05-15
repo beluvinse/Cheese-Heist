@@ -26,18 +26,17 @@ public class ChaseState : State
     public override void Update()
     {
 
-        var mouse = _cat.FOV.FieldOfViewCheck();
-        Debug.Log("Chase" + mouse);
+        var mouseFound = _cat.FOV.FieldOfViewCheck();
 
 
-        if (mouse == null)
+        if (mouseFound == null)
         {
             fsm.ChangeState(States.Patrol);
         }
         else
         {
             _cat.Move();
-            _cat.Chase(mouse.GetComponent<SteeringAgent>());
+            _cat.Chase(mouseFound.GetComponent<SteeringAgent>());
             _cat.CheckDestroyDistance();
         }
     }

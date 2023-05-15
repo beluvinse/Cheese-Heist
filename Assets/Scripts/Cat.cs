@@ -38,6 +38,7 @@ public class Cat : SteeringAgent
         _fov = GetComponent<FieldOfView>();
         _fsm.AddState(States.Patrol, new PatrolState(this));
         _fsm.AddState(States.Chase, new ChaseState(this));
+        _fsm.AddState(States.MouseTrapped, new TrapActiveState(this));
 
 
 
@@ -140,6 +141,7 @@ public class Cat : SteeringAgent
 public enum States
 {
     Patrol,
-    Chase
+    Chase,
+    MouseTrapped
 }
 
