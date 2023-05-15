@@ -7,15 +7,25 @@ using UnityEditor;
 
 public class SaveWithJson : MonoBehaviour
 {
+    public static SaveWithJson Instance;
     string path;
     [SerializeField] SaveData saveData = new SaveData();
     public PlayerData playerData;
 
     void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         path = Application.persistentDataPath + "/data.json";
         Debug.Log(path);
-    }
+     }
 
     public void SetHearts(int val)
     {

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Store : MonoBehaviour
 {
-    public PlayerData playerData;
     int _cheetos;
     int _hearts;
     int _maxHearts;
@@ -12,9 +11,9 @@ public class Store : MonoBehaviour
 
     private void GetData()
     {    
-        _cheetos = playerData.GetCheetos(); 
-        _hearts = playerData.GetHearts();
-        _maxHearts = playerData.GetMaxHearts();
+        _cheetos = PlayerData.Instance.GetCheetos(); 
+        _hearts = PlayerData.Instance.GetHearts();
+        _maxHearts = PlayerData.Instance.GetMaxHearts();
     }
 
     public void Buy1Heart()
@@ -23,8 +22,8 @@ public class Store : MonoBehaviour
 
         if(_hearts < _maxHearts && _cheetos >= 1)
         {
-            playerData.AddHearts(1);
-            playerData.SetCheetos(_cheetos - 1);
+            PlayerData.Instance.AddHearts(1);
+            PlayerData.Instance.SetCheetos(_cheetos - 1);
             //uiManager.UpdateCheetos();
             uiManager.UpdateHearts();
         }
@@ -37,8 +36,9 @@ public class Store : MonoBehaviour
 
         if (_hearts < _maxHearts && _cheetos >= 5)
         {
-            playerData.AddHearts(5);
-            playerData.SetCheetos(_cheetos - 5);
+            PlayerData.Instance.AddHearts(5);
+            PlayerData.Instance.SetCheetos(_cheetos - 5);
+            uiManager.UpdateHearts();
         }
     }
     
@@ -48,8 +48,9 @@ public class Store : MonoBehaviour
 
         if (_hearts < _maxHearts && _cheetos >= 15)
         {
-            playerData.AddHearts(20);
-            playerData.SetCheetos(_cheetos - 15);
+            PlayerData.Instance.AddHearts(20);
+            PlayerData.Instance.SetCheetos(_cheetos - 15);
+            uiManager.UpdateHearts();
         }
     }
 

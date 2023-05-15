@@ -12,14 +12,13 @@ public class EnergyManager : MonoBehaviour
     [SerializeField] private TMP_Text _textTimer;
     [SerializeField] private TMP_Text _textTimer2;
     [SerializeField] private int _maxHearts;
-    [SerializeField] private int _totalHearts = 0;
+    
 
     private DateTime _nextHeartTime;
     private DateTime _lastAddedTime;
-    private int _restoreDuration = 10; //10 segundos para probar
+    private int _restoreDuration = 30; //10 segundos para probar
 
-    public PlayerData playerData;
-
+    public UIManager ui;
 
     bool _restoring = false;
 
@@ -31,15 +30,15 @@ public class EnergyManager : MonoBehaviour
 
     public void UseHeart()
     {
-        if (_totalHearts == 0)
+        if (PlayerData.Instance.GetHearts() == 0)
             return;
 
-        _totalHearts--;
-        //UpdateHearts();
+        PlayerData.Instance.AddHearts(-1);
+        UpdateHearts();
 
         if (!_restoring)
         {
-            if (_totalHearts + 1 == _maxHearts)
+            if (PlayerData.Instance.GetHearts() + 1 == _maxHearts)
             {
                 _nextHeartTime = AddDuration(DateTime.Now, _restoreDuration);
             }
@@ -50,21 +49,20 @@ public class EnergyManager : MonoBehaviour
     private IEnumerator RestoreRoutine()
     {
         UpdateTimer();
-        //UpdateHearts();
+        UpdateHearts();
         _restoring = true;
 
-        while (_totalHearts < _maxHearts)
+        while (PlayerData.Instance.GetHearts() < _maxHearts)
         {
             DateTime currentTime = DateTime.Now;
             DateTime counter = _nextHeartTime;
             bool isAdding = false;
             while (currentTime > counter)
             {
-                if (_totalHearts < _maxHearts)
+                if (PlayerData.Instance.GetHearts() < _maxHearts)
                 {
-                    isAdding = true;
-                    _totalHearts++;
-                    playerData.AddHearts(1);
+                    isAdding = true;           
+                    PlayerData.Instance.AddHearts(1);
                     DateTime timeToAdd = _lastAddedTime > counter ? _lastAddedTime : counter;
                     counter = AddDuration(timeToAdd, _restoreDuration);
                 }
@@ -77,7 +75,7 @@ public class EnergyManager : MonoBehaviour
                 _nextHeartTime = counter;
             }
 
-            //UpdateHearts();
+            UpdateHearts();
             UpdateTimer();
             Save();
             yield return null;
@@ -88,7 +86,7 @@ public class EnergyManager : MonoBehaviour
 
     private void UpdateTimer()
     {
-        if (_totalHearts >= _maxHearts)
+        if (PlayerData.Instance.GetHearts() >= _maxHearts)
         {
             _textTimer.text = "Full";
             _textTimer2.text = "Full!";
@@ -96,7 +94,7 @@ public class EnergyManager : MonoBehaviour
         }
       
 
-         TimeSpan t = _nextHeartTime - DateTime.Now;
+        TimeSpan t = _nextHeartTime - DateTime.Now;
         string value = String.Format("{0}:{1:D2}:{2:D2}", (int)t.TotalHours, (int)t.TotalMinutes, (int)t.TotalSeconds);
         _textTimer.text = value;
         _textTimer2.text = "More in " + value;
@@ -105,8 +103,10 @@ public class EnergyManager : MonoBehaviour
 
     private void UpdateHearts()
     {
-        _textHearts.text = _totalHearts.ToString();
-        _textHearts2.text = _totalHearts.ToString() + "/" + _maxHearts;
+        //_textHearts.text = playerData.GetHearts().ToString();
+        //_textHearts2.text = playerData.GetHearts().ToString() + "/" + _maxHearts;
+
+        ui.UpdateHearts();
     }
 
     private DateTime AddDuration(DateTime time, int duration)
@@ -117,7 +117,6 @@ public class EnergyManager : MonoBehaviour
     public void Load()
     {
         //_totalHearts = PlayerPrefs.GetInt("totalHearts");
-        _totalHearts = playerData.GetHearts();
         _nextHeartTime = StringToDate(PlayerPrefs.GetString("nextHeartTime"));
         _lastAddedTime = StringToDate(PlayerPrefs.GetString("lastAddedTime"));
     }

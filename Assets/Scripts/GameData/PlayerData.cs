@@ -24,10 +24,6 @@ public class PlayerData : MonoBehaviour
     public void AddHearts(int val)
     {
        _hearts = Mathf.Clamp(_hearts + val, 0, _maxHearts);
-        
-        /*_hearts += val;
-        if(_hearts >= _maxHearts)
-            _hearts = _maxHearts;*/
         savedData.SetHearts(_hearts);
     }
 
@@ -35,6 +31,11 @@ public class PlayerData : MonoBehaviour
     {
         _cheetos = val;
         savedData.SetCheetos(_cheetos);
+    }
+
+    public void AddCheetos()
+    {
+        _cheetos++;
     }
 
     public int GetCheetos()

@@ -7,11 +7,11 @@ public class Cheto : MonoBehaviour, ICollectable
 {
     [SerializeField] float value;
 
-
     public static event Action OnChetoCollected;
 
     public void Collect()
     {
+        PlayerData.Instance.AddCheetos();
         Debug.Log("Yum, chetos");
         OnChetoCollected?.Invoke();
         Destroy(this.gameObject);

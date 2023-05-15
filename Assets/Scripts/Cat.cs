@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,8 @@ public class Cat : SteeringAgent
     private int _currentWaypoint;
 
     FiniteStateMachine _fsm;
+
+    public static event Action OnMouseEaten;
 
     [Header("Field of View")]
     FieldOfView _fov;
@@ -111,6 +114,7 @@ public class Cat : SteeringAgent
         if(Vector3.Distance(transform.position, mouse.transform.position) < _destroyRadius)
         {
             Debug.Log("morfadium");
+            OnMouseEaten?.Invoke();
             mouse.gameObject.SetActive(false);
         }
     }

@@ -5,8 +5,6 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public PlayerData playerData;
-
     public TMP_Text cheetosText;
     public TMP_Text cheetosText2;
     public TMP_Text heartsText;
@@ -15,25 +13,25 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        _maxHearts = playerData.GetMaxHearts();
+        _maxHearts = PlayerData.Instance.GetMaxHearts();
     }
 
     private void Update()
     {
-        UpdateHearts();
+        //UpdateHearts();
         UpdateCheetos();
     }
 
     public void UpdateHearts()
     {
-        var hearts = playerData.GetHearts();
+        var hearts = PlayerData.Instance.GetHearts();
         heartsText.text = "" + hearts;
         heartsText2.text = "" + hearts + "/" + _maxHearts;
     }
 
     public void UpdateCheetos()
     {
-        var cheetos = playerData.GetCheetos();
+        var cheetos = PlayerData.Instance.GetCheetos();
         cheetosText.text = "" + cheetos;
         cheetosText2.text = "" + cheetos;
     }
