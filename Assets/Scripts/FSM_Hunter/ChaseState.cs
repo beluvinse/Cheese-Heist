@@ -36,6 +36,7 @@ public class ChaseState : State
         else
         {
             _cat.Move();
+            _cat.ObstacleAvoidance();
             _cat.Chase(mouseFound.GetComponent<SteeringAgent>());
             _cat.CheckDestroyDistance();
         }

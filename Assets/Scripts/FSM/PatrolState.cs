@@ -37,7 +37,7 @@ public class PatrolState : State
             {
                 _cat.Move();
                 _cat.FollowWaypoints();
-                //_cat.ObstacleAvoidance();
+                _cat.ObstacleAvoidance();
 
             }
         }

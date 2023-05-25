@@ -51,7 +51,6 @@ public class Cat : SteeringAgent
 
     }
 
-
     private void Update()
     {
         _fsm.Update();
@@ -91,28 +90,9 @@ public class Cat : SteeringAgent
             _currentWaypoint = 0;
     }
 
-    public Vector3 ObstacleAvoidance()
-    {
-        Vector3 desired = default;
-        Debug.Log("obstacle avoidance");
-        if (Physics.Raycast(transform.position + transform.forward / 1.5f, _velocity, _chaseRadius, _obstacleMask))
-        {
-            desired = -transform.up;
-            Debug.Log("if");
-        }
-        else if (Physics.Raycast(transform.position - transform.forward / 1.5f, _velocity, _chaseRadius, _obstacleMask))
-        {
-            desired = transform.up;
-            Debug.Log("else if");
-        }
-        else return desired;
-
-        return CalculateSteering(desired.normalized * _maxSpeed);
-    }
-
     public void CheckDestroyDistance()
     {
-        if(Vector3.Distance(transform.position, mouse.transform.position) < _destroyRadius)
+        if (Vector3.Distance(transform.position, mouse.transform.position) < _destroyRadius)
         {
             Debug.Log("morfadium");
             OnMouseEaten?.Invoke();
@@ -120,20 +100,52 @@ public class Cat : SteeringAgent
         }
     }
 
+    public void ObstacleAvoidance()
+    {
+        Vector3 desired = default;
+        Debug.Log("obstacle avoidance");
+        if (Physics.Raycast(transform.position - transform.right * 0.25f, viewAngleA, _chaseRadius * 0.75f, _obstacleMask))
+        {
+            desired = transform.right;
+            Debug.Log("izq");
+        }
+        else if (Physics.Raycast(transform.position + transform.right * 0.25f, viewAngleB, _chaseRadius * 0.75f, _obstacleMask))
+        {
+            desired = -transform.right;
+            Debug.Log("der");
+        }
+
+
+        AddForce(desired.normalized * _maxSpeed);
+    }
+
+    Vector3 viewAngleA;
+    Vector3 viewAngleB;
+
     void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-        //Gizmos.DrawWireSphere(_waypoints[_currentWaypoint].position, waypointRadius);
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, _chaseRadius);
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, _destroyRadius);
-        //Gizmos.DrawLine(transform.position,transform.position + transform.forward / 1.5f);
-        //Gizmos.DrawLine(transform.position,transform.position - transform.forward / 1.5f);
 
-        
+        viewAngleA = DirectionFromAngle(transform.eulerAngles.y, -10f / 2);
+        viewAngleB = DirectionFromAngle(transform.eulerAngles.y, 10f / 2);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(transform.position - transform.right * 0.25f, transform.position - transform.right * 0.25f + viewAngleA * _chaseRadius * 0.75f);
+        Gizmos.DrawLine(transform.position + transform.right * 0.25f, transform.position + transform.right * 0.25f + viewAngleB * _chaseRadius * 0.75f);
+    }
+
+
+
+    private Vector3 DirectionFromAngle(float eulerY, float angleInDegrees)
+    {
+        angleInDegrees += eulerY;
+
+        return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
 
 }
