@@ -33,13 +33,11 @@ public class FieldOfView : MonoBehaviour
 
             if (Vector3.Angle(transform.forward, directionToTarget) < _angle / 2)
             {
-                Debug.Log("Chequeo 2");
 
                 float distanceToTarget = Vector3.Distance(transform.position, Target.position);
 
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, _obstacleMask))
                 {
-                    Debug.Log("oh un mouse");
                     seesEnemy = true;
                     return Target.GetComponent<MouseController>();
                 }
@@ -61,9 +59,11 @@ public class FieldOfView : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, _chaseRadius);
         Vector3 viewAngleA = DirectionFromAngle(transform.eulerAngles.y, -_angle / 2);
         Vector3 viewAngleB = DirectionFromAngle(transform.eulerAngles.y, _angle / 2);
-        Gizmos.color = Color.yellow;
+        Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position + viewAngleA * _chaseRadius);
         Gizmos.DrawLine(transform.position, transform.position + viewAngleB * _chaseRadius);
+
+        
         
     }
 
