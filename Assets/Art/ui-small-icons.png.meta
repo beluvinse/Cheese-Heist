@@ -1,21 +1,13 @@
 fileFormatVersion: 2
 guid: 74f8b4d56cb24724abef2f7c526fd9ca
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -5390123095117124330
-    second: ui-small-icons_0
-  - first:
-      213: -8880520576215733831
-    second: ui-small-icons_1
-  - first:
-      213: -3983950619504736678
-    second: ui-small-icons_2
-  - first:
-      213: -9176472066801411641
-    second: ui-small-icons_3
+  fileIDToRecycleName:
+    21300000: ui-small-icons_0
+    21300002: ui-small-icons_1
+    21300004: ui-small-icons_2
+    21300006: ui-small-icons_3
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -35,8 +27,6 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
-  vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -68,16 +58,11 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
-  flipbookRows: 1
-  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
-  ignorePngGamma: 0
-  applyGammaDecoding: 0
-  cookieLightType: 1
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 512
     resizeAlgorithm: 0
@@ -88,8 +73,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 2
     buildTarget: Standalone
     maxTextureSize: 512
     resizeAlgorithm: 0
@@ -100,8 +84,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 2
     buildTarget: Server
     maxTextureSize: 512
     resizeAlgorithm: 0
@@ -112,8 +95,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 2
     buildTarget: Android
     maxTextureSize: 512
     resizeAlgorithm: 0
@@ -124,7 +106,6 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -144,7 +125,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 61d2ae36a9f6235b0800000000000000
-      internalID: -5390123095117124330
       vertices: []
       indices: 
       edges: []
@@ -165,7 +145,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 9b92d12469d02c480800000000000000
-      internalID: -8880520576215733831
       vertices: []
       indices: 
       edges: []
@@ -186,7 +165,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: a5609b9f40a26b8c0800000000000000
-      internalID: -3983950619504736678
       vertices: []
       indices: 
       edges: []
@@ -207,7 +185,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 7c9d107364f96a080800000000000000
-      internalID: -9176472066801411641
       vertices: []
       indices: 
       edges: []
@@ -216,17 +193,10 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-    secondaryTextures: []
-    nameFileIdTable:
-      ui-small-icons_2: -3983950619504736678
-      ui-small-icons_0: -5390123095117124330
-      ui-small-icons_3: -9176472066801411641
-      ui-small-icons_1: -8880520576215733831
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

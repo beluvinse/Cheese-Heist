@@ -1,14 +1,116 @@
 fileFormatVersion: 2
 guid: 8983aaec20b489041a91bf9697ee53c4
 ModelImporter:
-  serializedVersion: 21300
-  internalIDToNameTable:
-  - first:
-      74: 2217144037868176351
-    second: LowPolyCat_StartAnim
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Cat_Ankle_L_Front_Jnt
+    100004: Cat_Ankle_R_Front_Jnt
+    100006: Cat_Ear_L
+    100008: Cat_Ear_L_Jnt
+    100010: Cat_Ear_R
+    100012: Cat_Ear_R_Jnt
+    100014: Cat_Head_Jnt
+    100016: Cat_Hip_Jnt
+    100018: Cat_Hip_Jnt 1
+    100020: Cat_Knee1_L_Rear_Jnt
+    100022: Cat_Knee1_R_Rear_Jnt
+    100024: Cat_Knee2_L_Rear_Jnt
+    100026: Cat_Knee2_R_Rear_Jnt
+    100028: Cat_Leg1_L_Front_Jnt
+    100030: Cat_Leg1_R_Front_Jnt
+    100032: Cat_Leg2_R_Front_Jnt
+    100034: Cat_Leg2_R_Front_Jnt 1
+    100036: Cat_Leg_L_Rear_Jnt
+    100038: Cat_Leg_R_Rear_Jnt
+    100040: Cat_Neck_Jnt
+    100042: Cat_Nose
+    100044: Cat_Paw1_L_Rear_Jnt
+    100046: Cat_Paw1_R_Rear_Jnt
+    100048: Cat_Paw2_L_Rear
+    100050: Cat_Paw2_R_Rear
+    100052: Cat_Paw_L_Front
+    100054: Cat_Paw_L_Front_Jnt
+    100056: Cat_Paw_R_Front
+    100058: Cat_Paw_R_Front_Jnt
+    100060: Cat_Root_Ctrl
+    100062: Cat_Root_Jnt
+    100064: Cat_Skeleton
+    100066: Cat_Spine1_Jnt
+    100068: Cat_Spine2_Jnt
+    100070: Cat_Spine3_Jnt
+    100072: Cat_Spine4_Jnt
+    100074: Cat_Tail1_Jnt
+    100076: Cat_Tail2_Jnt
+    100078: Cat_Tail3_Jnt
+    100080: Cat_Tail4_Jnt
+    100082: CatMesh
+    100084: pasted__Rib_1_B_Jnt
+    100086: pasted__Rib_1_Jnt
+    100088: pasted__Rib_1_L_Jnt
+    100090: pasted__Rib_1_R_Jnt
+    100092: pasted__Rib_2_B_Jnt
+    100094: pasted__Rib_2_Jnt
+    100096: pasted__Rib_2_L_Jnt
+    100098: pasted__Rib_2_R_Jnt
+    400000: //RootNode
+    400002: Cat_Ankle_L_Front_Jnt
+    400004: Cat_Ankle_R_Front_Jnt
+    400006: Cat_Ear_L
+    400008: Cat_Ear_L_Jnt
+    400010: Cat_Ear_R
+    400012: Cat_Ear_R_Jnt
+    400014: Cat_Head_Jnt
+    400016: Cat_Hip_Jnt
+    400018: Cat_Hip_Jnt 1
+    400020: Cat_Knee1_L_Rear_Jnt
+    400022: Cat_Knee1_R_Rear_Jnt
+    400024: Cat_Knee2_L_Rear_Jnt
+    400026: Cat_Knee2_R_Rear_Jnt
+    400028: Cat_Leg1_L_Front_Jnt
+    400030: Cat_Leg1_R_Front_Jnt
+    400032: Cat_Leg2_R_Front_Jnt
+    400034: Cat_Leg2_R_Front_Jnt 1
+    400036: Cat_Leg_L_Rear_Jnt
+    400038: Cat_Leg_R_Rear_Jnt
+    400040: Cat_Neck_Jnt
+    400042: Cat_Nose
+    400044: Cat_Paw1_L_Rear_Jnt
+    400046: Cat_Paw1_R_Rear_Jnt
+    400048: Cat_Paw2_L_Rear
+    400050: Cat_Paw2_R_Rear
+    400052: Cat_Paw_L_Front
+    400054: Cat_Paw_L_Front_Jnt
+    400056: Cat_Paw_R_Front
+    400058: Cat_Paw_R_Front_Jnt
+    400060: Cat_Root_Ctrl
+    400062: Cat_Root_Jnt
+    400064: Cat_Skeleton
+    400066: Cat_Spine1_Jnt
+    400068: Cat_Spine2_Jnt
+    400070: Cat_Spine3_Jnt
+    400072: Cat_Spine4_Jnt
+    400074: Cat_Tail1_Jnt
+    400076: Cat_Tail2_Jnt
+    400078: Cat_Tail3_Jnt
+    400080: Cat_Tail4_Jnt
+    400082: CatMesh
+    400084: pasted__Rib_1_B_Jnt
+    400086: pasted__Rib_1_Jnt
+    400088: pasted__Rib_1_L_Jnt
+    400090: pasted__Rib_1_R_Jnt
+    400092: pasted__Rib_2_B_Jnt
+    400094: pasted__Rib_2_Jnt
+    400096: pasted__Rib_2_L_Jnt
+    400098: pasted__Rib_2_R_Jnt
+    2100000: lambert4
+    4300000: CatMesh
+    7400000: LowPolyCat_StartAnim
+    9500000: //RootNode
+    13700000: CatMesh
   externalObjects: {}
   materials:
-    materialImportMode: 2
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -17,7 +119,6 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    removeConstantScaleCurves: 1
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -38,7 +139,6 @@ ModelImporter:
     - serializedVersion: 16
       name: LowPolyCat_StartAnim
       takeName: LowPolyCat_StartAnim
-      internalID: 0
       firstFrame: 1
       lastFrame: 30
       wrapMode: 0
@@ -70,47 +170,34 @@ ModelImporter:
     globalScale: 0.5
     meshCompression: 0
     addColliders: 0
-    useSRGBMaterialColor: 1
-    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
-    nodeNameCollisionStrategy: 1
-    fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    bakeAxisConversion: 0
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    optimizeBones: 1
-    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
-    secondaryUVMarginMethod: 1
-    secondaryUVMinLightmapResolution: 40
-    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 0.005
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
-    blendShapeNormalImportMode: 1
-    normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
+  copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -120,18 +207,13 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.005
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
-  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
-  remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

@@ -1,23 +1,65 @@
 fileFormatVersion: 2
 guid: 2e60e80160441d54993bb8304f6d27c8
 ModelImporter:
-  serializedVersion: 21300
-  internalIDToNameTable:
-  - first:
-      74: -3448455546461785960
-    second: Armature|Chilling on Ground 0-55
-  - first:
-      74: -1415273894226997924
-    second: Armature|Chilling on hind feet 0-55
-  - first:
-      74: -3719643867270806029
-    second: Armature|Gallopp 33-52
-  - first:
-      74: 403955737479106607
-    second: Armature|Running close to ground 14-23
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Arm.L
+    100002: Arm.R
+    100004: Armature
+    100006: Body
+    100008: Hand.L
+    100010: Hand.L_end
+    100012: Hand.R
+    100014: Hand.R_end
+    100016: Head
+    100018: Head_end
+    100020: Leg.L
+    100022: Leg.L_end
+    100024: Leg.R
+    100026: Leg.R_end
+    100028: Maus
+    100030: Root
+    100032: Root_end
+    100034: Tail.0
+    100036: Tail.1
+    100038: Tail.2
+    100040: Tail.3
+    100042: Tail.3_end
+    100044: //RootNode
+    400000: Arm.L
+    400002: Arm.R
+    400004: Armature
+    400006: Body
+    400008: Hand.L
+    400010: Hand.L_end
+    400012: Hand.R
+    400014: Hand.R_end
+    400016: Head
+    400018: Head_end
+    400020: Leg.L
+    400022: Leg.L_end
+    400024: Leg.R
+    400026: Leg.R_end
+    400028: Maus
+    400030: Root
+    400032: Root_end
+    400034: Tail.0
+    400036: Tail.1
+    400038: Tail.2
+    400040: Tail.3
+    400042: Tail.3_end
+    400044: //RootNode
+    2100000: Material.001
+    4300000: Maus
+    7400000: Armature|Chilling on Ground 0-55
+    7400002: Armature|Chilling on hind feet 0-55
+    7400004: Armature|Gallopp 33-52
+    7400006: Armature|Running close to ground 14-23
+    9500000: //RootNode
+    13700000: Maus
   externalObjects: {}
   materials:
-    materialImportMode: 2
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -26,7 +68,6 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    removeConstantScaleCurves: 1
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -47,7 +88,6 @@ ModelImporter:
     - serializedVersion: 16
       name: Armature|Chilling on Ground 0-55
       takeName: Armature|Chilling on Ground 0-55
-      internalID: 0
       firstFrame: 0
       lastFrame: 55
       wrapMode: 0
@@ -76,7 +116,6 @@ ModelImporter:
     - serializedVersion: 16
       name: Armature|Chilling on hind feet 0-55
       takeName: Armature|Chilling on hind feet 0-55
-      internalID: 0
       firstFrame: 0
       lastFrame: 55
       wrapMode: 0
@@ -105,7 +144,6 @@ ModelImporter:
     - serializedVersion: 16
       name: Armature|Gallopp 33-52
       takeName: Armature|Gallopp 33-52
-      internalID: 0
       firstFrame: 0
       lastFrame: 91
       wrapMode: 0
@@ -134,7 +172,6 @@ ModelImporter:
     - serializedVersion: 16
       name: Armature|Running close to ground 14-23
       takeName: Armature|Running close to ground 14-23
-      internalID: 0
       firstFrame: 0
       lastFrame: 33
       wrapMode: 0
@@ -166,47 +203,34 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    useSRGBMaterialColor: 1
-    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
-    nodeNameCollisionStrategy: 1
-    fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    bakeAxisConversion: 0
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    optimizeBones: 1
-    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
-    secondaryUVMarginMethod: 1
-    secondaryUVMinLightmapResolution: 40
-    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
-    blendShapeNormalImportMode: 1
-    normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
+  copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -216,18 +240,13 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
-  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
-  remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
