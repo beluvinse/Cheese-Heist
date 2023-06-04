@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 9103459349432507007}
   - component: {fileID: 9103459349432507006}
   - component: {fileID: 9103459349432506993}
+  - component: {fileID: 143216713486463311}
+  - component: {fileID: 3801132965453978360}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Untagged
@@ -123,13 +125,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8256388782068404715}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57ea6ac9bf0b9cb478d87bf618b53763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _maxSpeed: 3.59
   _maxForce: 0.0029
+  mouse: {fileID: 0}
   waypointRadius: 0.5
   Waypoints: {fileID: 0}
   _waypoints: []
@@ -140,3 +143,38 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   _chaseRadius: 1.5
+--- !u!114 &143216713486463311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8256388782068404715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81925b8d188c35644ab15921dc95573d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 0}
+--- !u!195 &3801132965453978360
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8256388782068404715}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.0815273
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.09
+  m_BaseOffset: 0.01
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
