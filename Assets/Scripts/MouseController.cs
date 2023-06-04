@@ -11,6 +11,8 @@ public class MouseController : SteeringAgent
 
     public bool isRooted { get { return _isRooted; } }
 
+    public Animator myAnim;
+
     Vector3 input;
 
     void FixedUpdate()
@@ -24,6 +26,11 @@ public class MouseController : SteeringAgent
             {
                 AddForce(controller.GetMovementInput() * speed);
                 Move();
+                myAnim.SetBool("isMoving", true);
+            }
+            else
+            {
+                myAnim.SetBool("isMoving", false);
             }
         }
         else
