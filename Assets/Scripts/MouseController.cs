@@ -13,6 +13,8 @@ public class MouseController : SteeringAgent
 
     Vector3 input;
 
+    public Animator anim;
+
     void FixedUpdate()
     {
 
@@ -24,6 +26,12 @@ public class MouseController : SteeringAgent
             {
                 AddForce(controller.GetMovementInput() * speed);
                 Move();
+                anim.SetBool("isMoving", true);
+            }
+            else
+            {
+                Debug.Log("esta quieto");
+                anim.SetBool("isMoving", false);
             }
         }
         else
