@@ -5,9 +5,9 @@ using UnityEngine;
 public class PatrolState : State
 {
 
-    private Cat _cat;
+    private Cat_NavMesh _cat;
 
-    public PatrolState(Cat c)
+    public PatrolState(Cat_NavMesh c)
     {
         _cat = c;
     }
@@ -15,7 +15,6 @@ public class PatrolState : State
     public override void OnEnter()
     {
         Debug.Log("Momento:Waypoints");
-        _cat.BaseSpeed();
     }
 
     public override void OnExit()
@@ -25,26 +24,26 @@ public class PatrolState : State
 
     public override void Update()
     {
-        var mouseFound = _cat.FOV.FieldOfViewCheck();
+        //var mouseFound = _cat.FOV.FieldOfViewCheck();
 
-        if (!_cat.mouse.isRooted )
-        {
-            if (mouseFound != null)
-            {
-                fsm.ChangeState(States.Chase);
-            }
-            else
-            {
-                _cat.Move();
-                _cat.FollowWaypoints();
-                _cat.ObstacleAvoidance();
+        //if (!_cat.mouse.isRooted )
+        //{
+        //    if (mouseFound != null)
+        //    {
+        //        fsm.ChangeState(States.Chase);
+        //    }
+        //    else
+        //    {
+        Debug.Log("??????");
+        _cat.WaypointSystem();
 
-            }
-        }
-        else
-        {
-            fsm.ChangeState(States.MouseTrapped);
-        }
+
+        //    }
+        //}
+        //else
+        //{
+        //    fsm.ChangeState(States.MouseTrapped);
+        //}
             
 
     }
