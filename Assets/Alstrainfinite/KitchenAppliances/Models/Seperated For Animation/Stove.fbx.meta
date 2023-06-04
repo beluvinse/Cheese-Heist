@@ -1,59 +1,11 @@
 fileFormatVersion: 2
 guid: 18925ea6c93987e49979c5fcda598980
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: Stove-Drawer
-    100004: Stove-FrontDoor
-    100006: Stove-KnobLeft1
-    100008: Stove-KnobLeft2
-    100010: Stove-KnobRight1
-    100012: Stove-KnobRight2
-    100014: Stove-TrayLower
-    100016: Stove-TrayUpper
-    400000: //RootNode
-    400002: Stove-Drawer
-    400004: Stove-FrontDoor
-    400006: Stove-KnobLeft1
-    400008: Stove-KnobLeft2
-    400010: Stove-KnobRight1
-    400012: Stove-KnobRight2
-    400014: Stove-TrayLower
-    400016: Stove-TrayUpper
-    2100000: 8x8
-    2300000: //RootNode
-    2300002: Stove-Drawer
-    2300004: Stove-FrontDoor
-    2300006: Stove-KnobLeft1
-    2300008: Stove-KnobLeft2
-    2300010: Stove-KnobRight1
-    2300012: Stove-KnobRight2
-    2300014: Stove-TrayLower
-    2300016: Stove-TrayUpper
-    3300000: //RootNode
-    3300002: Stove-Drawer
-    3300004: Stove-FrontDoor
-    3300006: Stove-KnobLeft1
-    3300008: Stove-KnobLeft2
-    3300010: Stove-KnobRight1
-    3300012: Stove-KnobRight2
-    3300014: Stove-TrayLower
-    3300016: Stove-TrayUpper
-    4300000: Stove
-    4300002: Stove-FrontDoor
-    4300004: Stove-Drawer
-    4300006: Stove-KnobRight1
-    4300008: Stove-KnobRight2
-    4300010: Stove-KnobLeft1
-    4300012: Stove-KnobLeft2
-    4300014: Stove-TrayUpper
-    4300016: Stove-TrayLower
-    9500000: //RootNode
-    2186277476908879412: ImportLogs
+  serializedVersion: 19301
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -85,34 +37,41 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -122,13 +81,16 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
