@@ -3080,6 +3080,7 @@ MonoBehaviour:
   controller: {fileID: 334765150}
   speed: 2
   _isRooted: 0
+  myAnim: {fileID: 0}
 --- !u!65 &570851921
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6843,7 +6844,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24554
+  m_Name: pb_Mesh41000
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7369,7 +7370,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24956
+  m_Name: pb_Mesh41406
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9330,6 +9331,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4736284765637330877, guid: 4f9a96c7203d4fc498ac317884c1f552,
         type: 3}
+      propertyPath: myAnim
+      value: 
+      objectReference: {fileID: 1888298877}
+    - target: {fileID: 4736284765637330877, guid: 4f9a96c7203d4fc498ac317884c1f552,
+        type: 3}
       propertyPath: controller
       value: 
       objectReference: {fileID: 334765150}
@@ -9431,6 +9437,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 2}
   m_Center: {x: 0.33, y: 0.47, z: -0.29}
+--- !u!95 &1888298877 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4736284765637330848, guid: 4f9a96c7203d4fc498ac317884c1f552,
+    type: 3}
+  m_PrefabInstance: {fileID: 1888298868}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1892478773
 GameObject:
   m_ObjectHideFlags: 0
@@ -9524,6 +9536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81925b8d188c35644ab15921dc95573d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouse: {fileID: 1888298870}
   _speed: 0.8
   _angularSpeed: 200
   _acceleration: 2
@@ -9535,6 +9548,14 @@ MonoBehaviour:
   - {fileID: 2141011806}
   - {fileID: 1018286281}
   - {fileID: 1066783834}
+  _chaseRadius: 1
+  _angleView: 69.2
+  _targetMask:
+    serializedVersion: 2
+    m_Bits: 128
+  _obstacleMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!195 &1919393755
 NavMeshAgent:
   m_ObjectHideFlags: 0

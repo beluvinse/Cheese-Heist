@@ -5,9 +5,9 @@ using UnityEngine;
 public class ChaseState : State
 {
 
-    Cat _cat;
+    Cat_NavMesh _cat;
 
-    public ChaseState(Cat c)
+    public ChaseState(Cat_NavMesh c)
     {
         _cat = c;
     }
@@ -35,10 +35,7 @@ public class ChaseState : State
         }
         else
         {
-            _cat.Move();
-            _cat.ObstacleAvoidance();
-            _cat.Chase(mouseFound.GetComponent<SteeringAgent>());
-            _cat.CheckDestroyDistance();
+            _cat.ChaseMouse();//pasar mouse por aca?
         }
     }
 

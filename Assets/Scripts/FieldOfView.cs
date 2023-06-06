@@ -2,41 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FieldOfView : MonoBehaviour
+public class FieldOfView
 {
-
-    [Header("Field of View")]
-    [SerializeField] LayerMask _targetMask;
-    [SerializeField] LayerMask _obstacleMask;
-    [Range(0, 2)] [SerializeField] float _chaseRadius;
-    float _angle = 100f;
-
     public bool seesEnemy;
 
+    private Transform _agent;
+    private float _range;
+    private float _angle;
+    private LayerMask _targetMask;
+    private LayerMask _obstructionMask;
 
 
-    /*public FieldOfView(float r, LayerMask tMask, LayerMask obsMask)
+    public FieldOfView(Transform agent, float r, float angle, LayerMask tMask, LayerMask obsMask)
     {
+        _agent = agent;
         _range = r;
-        targetMask = tMask;
-        obstructionMask = obsMask;
-        _angle = 100;
-    }*/
+        _targetMask = tMask;
+        _obstructionMask = obsMask;
+        _angle = angle;
+    }
 
     public MouseController FieldOfViewCheck()
     {
-        Collider[] RangeChecks = Physics.OverlapSphere(transform.position, _chaseRadius, _targetMask);
+        Collider[] RangeChecks = Physics.OverlapSphere(_agent.transform.position, _range, _targetMask);
         if (RangeChecks.Length != 0)
         {
             Transform Target = RangeChecks[0].transform;
-            Vector3 directionToTarget = (Target.position - transform.position).normalized;
+            Vector3 directionToTarget = (Target.position - _agent.transform.position).normalized;
 
-            if (Vector3.Angle(transform.forward, directionToTarget) < _angle / 2)
+            if (Vector3.Angle(_agent.transform.forward, directionToTarget) < _angle / 2)
             {
 
-                float distanceToTarget = Vector3.Distance(transform.position, Target.position);
+                float distanceToTarget = Vector3.Distance(_agent.transform.position, Target.position);
 
-                if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, _obstacleMask))
+                if (!Physics.Raycast(_agent.transform.position, directionToTarget, distanceToTarget, _obstructionMask))
                 {
                     seesEnemy = true;
                     return Target.GetComponent<MouseController>();
@@ -56,12 +55,12 @@ public class FieldOfView : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.gray;
-        Gizmos.DrawWireSphere(transform.position, _chaseRadius);
-        Vector3 viewAngleA = DirectionFromAngle(transform.eulerAngles.y, -_angle / 2);
-        Vector3 viewAngleB = DirectionFromAngle(transform.eulerAngles.y, _angle / 2);
+        Gizmos.DrawWireSphere(_agent.transform.position, _range);
+        Vector3 viewAngleA = DirectionFromAngle(_agent.transform.eulerAngles.y, -_angle / 2);
+        Vector3 viewAngleB = DirectionFromAngle(_agent.transform.eulerAngles.y, _angle / 2);
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + viewAngleA * _chaseRadius);
-        Gizmos.DrawLine(transform.position, transform.position + viewAngleB * _chaseRadius);
+        Gizmos.DrawLine(_agent.transform.position, _agent.transform.position + viewAngleA * _range);
+        Gizmos.DrawLine(_agent.transform.position, _agent.transform.position + viewAngleB * _range);
 
         
         

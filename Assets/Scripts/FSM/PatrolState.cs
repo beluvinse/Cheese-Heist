@@ -15,6 +15,7 @@ public class PatrolState : State
     public override void OnEnter()
     {
         Debug.Log("Momento:Waypoints");
+        _cat.SetBaseSpeed();
     }
 
     public override void OnExit()
@@ -24,22 +25,19 @@ public class PatrolState : State
 
     public override void Update()
     {
-        //var mouseFound = _cat.FOV.FieldOfViewCheck();
+        var mouseFound = _cat.FOV.FieldOfViewCheck();
 
-        //if (!_cat.mouse.isRooted )
-        //{
-        //    if (mouseFound != null)
-        //    {
-        //        fsm.ChangeState(States.Chase);
-        //    }
-        //    else
-        //    {
-        Debug.Log("??????");
-        _cat.WaypointSystem();
-
-
-        //    }
-        //}
+        if (!_cat.mouse.isRooted )
+        {
+            if (mouseFound != null)
+            {
+                fsm.ChangeState(States.Chase);
+            }
+            else
+            {
+                _cat.WaypointSystem();
+            }
+        }
         //else
         //{
         //    fsm.ChangeState(States.MouseTrapped);

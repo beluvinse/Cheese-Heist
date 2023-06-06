@@ -37,7 +37,7 @@ public class Cat : SteeringAgent
         _fsm = new FiniteStateMachine();
         _fov = GetComponent<FieldOfView>();
         //_fsm.AddState(States.Patrol, new PatrolState(this));
-        _fsm.AddState(States.Chase, new ChaseState(this));
+        //_fsm.AddState(States.Chase, new ChaseState(this));
         _fsm.AddState(States.MouseTrapped, new TrapActiveState(this));
 
 

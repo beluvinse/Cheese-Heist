@@ -6,8 +6,11 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class Cat_NavMesh : MonoBehaviour
 {
+    public MouseController mouse;
+
     [Header("Agent")]
     [SerializeField] float _speed;
+    private float _baseSpeed;
     [SerializeField] float _angularSpeed;
     [SerializeField] float _acceleration;
 
@@ -19,6 +22,12 @@ public class Cat_NavMesh : MonoBehaviour
     private bool _atEnd = false;
     private bool _moving = true;
 
+    [Header("Field of View")]
+    [SerializeField] float _chaseRadius;
+    [Range(0f,180f)][SerializeField] float _angleView;
+    [SerializeField] LayerMask _targetMask;
+    [SerializeField] LayerMask _obstacleMask;
+
 
 
 
@@ -26,10 +35,13 @@ public class Cat_NavMesh : MonoBehaviour
     FiniteStateMachine _fsm;
     FieldOfView _fov;
 
+    public FieldOfView FOV {get{return _fov;}}
+
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
         _agent.speed = _speed;
+        _baseSpeed = _speed;
         _agent.angularSpeed = _angularSpeed;
         _agent.acceleration = _acceleration;
 
@@ -39,8 +51,11 @@ public class Cat_NavMesh : MonoBehaviour
             _agent.SetDestination(_currentTarget.position);
         }
 
+        _fov = new FieldOfView(this.transform, _chaseRadius, _angleView, _targetMask, _obstacleMask);
+
         _fsm = new FiniteStateMachine();
         _fsm.AddState(States.Patrol, new PatrolState(this));
+        _fsm.AddState(States.Chase,new ChaseState(this));
 
         _fsm.ChangeState(States.Patrol);
     }
@@ -58,20 +73,25 @@ public class Cat_NavMesh : MonoBehaviour
     {
         if(_currentTarget != null)
         {
-            Debug.Log("a");
             if((Vector3.Distance(transform.position, _currentTarget.position) <= 0.1f) && _moving)
             {
-                Debug.Log("aaa");
                 _moving = false;
                 StartCoroutine("MoveToNextWaypoint");
             }
         }
     }
 
+    public void ChaseMouse(){
+        _agent.SetDestination(mouse.transform.position);
+    }
+
+    public void BuffSpeed(float val){_speed *= val;}
+    
+    public void SetBaseSpeed(){_speed = _baseSpeed;}
+
 
     IEnumerator MoveToNextWaypoint()
     {
-        Debug.Log("aa");
         if (!_inReverse)
         {
             _index++;
@@ -108,7 +128,30 @@ public class Cat_NavMesh : MonoBehaviour
         _agent.SetDestination(_currentTarget.position);
         _moving = true;
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.gray;
+        Gizmos.DrawWireSphere(transform.position, _chaseRadius);
+        Vector3 viewAngleA = DirectionFromAngle(transform.eulerAngles.y, -_angleView / 2);
+        Vector3 viewAngleB = DirectionFromAngle(transform.eulerAngles.y, _angleView / 2);
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, transform.position + viewAngleA * _chaseRadius);
+        Gizmos.DrawLine(transform.position, transform.position + viewAngleB * _chaseRadius);
+
+        
+        
+    }
+
+    private Vector3 DirectionFromAngle(float eulerY, float angleInDegrees)
+    {
+        angleInDegrees += eulerY;
+
+        return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+    }
 }
+
+
 
 public enum States
 {
