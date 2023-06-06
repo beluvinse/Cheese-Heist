@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class WallHole : MonoBehaviour, IInteractable
 {
-    [SerializeField] Transform _out;
-    [SerializeField] Transform _in;
+    public Transform @out;
+    public Transform @in;
 
-    [SerializeField] GameObject mouseView;
+    public GameObject mouseView;
+
+    [SerializeField] WallHole Connection;
 
     private MouseController _mouse;
     
@@ -19,9 +21,15 @@ public class WallHole : MonoBehaviour, IInteractable
             Debug.Log("press O to exit");
             if (Input.GetKeyDown(KeyCode.O))
             {
-                Debug.Log("sali!");
+                Debug.LogWarning("sali!");
                 mouseView.gameObject.SetActive(false);
-                _mouse.ExitWallHole(_out);
+                _mouse.ExitWallHole(@out);
+            }
+
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                GoToOtherHole();
+
             }
         }
         else
@@ -29,12 +37,20 @@ public class WallHole : MonoBehaviour, IInteractable
             Debug.Log("press I to enter");
             if (Input.GetKeyDown(KeyCode.I))
             {
-                Debug.Log("Entre!");
-                mouseView.gameObject.SetActive(true);
+                Debug.LogWarning("Entre!");
 
-                _mouse.EnterWallHole(_in);
+                _mouse.EnterWallHole(@in);
+                mouseView.gameObject.SetActive(true);
 
             }
         }
+    }
+
+    public void GoToOtherHole() {
+        Debug.LogWarning("pase");
+        mouseView.gameObject.SetActive(false);
+        Connection.mouseView.SetActive(true);
+        _mouse.transform.position = Connection.@in.position;
+
     }
 }

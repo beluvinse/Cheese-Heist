@@ -47,14 +47,16 @@ public class MouseController : SteeringAgent
     public void EnterWallHole(Transform inPos)
     {
         _lastYPos = transform.position.y;
-        _isInWallHole = true;
         transform.position = new Vector3(inPos.position.x, _lastYPos, inPos.position.z);
+        _isInWallHole = true;
+
     }
 
     public void ExitWallHole(Transform outPos)
     {
-        _isInWallHole = false;
         transform.position = new Vector3(outPos.position.x, _lastYPos, outPos.position.z);
+        _isInWallHole = false;
+
     }
 
     public void Trapped(float time)

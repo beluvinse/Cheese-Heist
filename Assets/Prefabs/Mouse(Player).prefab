@@ -688,6 +688,7 @@ MonoBehaviour:
   controller: {fileID: 0}
   speed: 1.5
   _isRooted: 0
+  _isInWallHole: 0
   myAnim: {fileID: 4736284765637330848}
 --- !u!114 &1422016778415504685
 MonoBehaviour:

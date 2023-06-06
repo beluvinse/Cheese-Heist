@@ -23,7 +23,7 @@ public class Cat_NavMesh : MonoBehaviour
     private bool _moving = true;
 
     [Header("Field of View")]
-    [SerializeField] float _chaseRadius;
+    [Range(0f, 4f)] [SerializeField] float _chaseRadius;
     [Range(0f,180f)][SerializeField] float _angleView;
     [SerializeField] LayerMask _targetMask;
     [SerializeField] LayerMask _obstacleMask;
