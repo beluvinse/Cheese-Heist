@@ -16,6 +16,7 @@ public class PatrolState : State
     {
         Debug.Log("Momento:Waypoints");
         _cat.SetBaseSpeed();
+        _cat.WaypointSystem(true);
     }
 
     public override void OnExit()
@@ -27,7 +28,7 @@ public class PatrolState : State
     {
         var mouseFound = _cat.FOV.FieldOfViewCheck();
 
-        if (!_cat.mouse.isRooted )
+        if (!_cat.mouse.IsRooted )
         {
             if (mouseFound != null)
             {
@@ -35,7 +36,7 @@ public class PatrolState : State
             }
             else
             {
-                _cat.WaypointSystem();
+                _cat.WaypointSystem(false);
             }
         }
         //else

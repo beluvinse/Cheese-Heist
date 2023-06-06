@@ -8,8 +8,10 @@ public class MouseController : SteeringAgent
     [SerializeField] float speed;
 
     [SerializeField] bool _isRooted;
+    [SerializeField] bool _isInWallHole;
 
-    public bool isRooted { get { return _isRooted; } }
+    public bool IsRooted { get { return _isRooted; } }
+    public bool IsInWallHole { get { return _isInWallHole; } }
 
     public Animator myAnim;
 
@@ -18,7 +20,7 @@ public class MouseController : SteeringAgent
     void FixedUpdate()
     {
 
-        if (!_isRooted) 
+        if (!_isRooted && !_isInWallHole) 
         {
             input = controller.GetMovementInput();
             //transform.position += controller.GetMovementInput() * speed * Time.deltaTime;
@@ -38,6 +40,21 @@ public class MouseController : SteeringAgent
             input = Vector3.zero;
         }
             
+    }
+
+    float _lastYPos;
+
+    public void EnterWallHole(Transform inPos)
+    {
+        _lastYPos = transform.position.y;
+        _isInWallHole = true;
+        transform.position = new Vector3(inPos.position.x, _lastYPos, inPos.position.z);
+    }
+
+    public void ExitWallHole(Transform outPos)
+    {
+        _isInWallHole = false;
+        transform.position = new Vector3(outPos.position.x, _lastYPos, outPos.position.z);
     }
 
     public void Trapped(float time)

@@ -69,10 +69,15 @@ public class Cat_NavMesh : MonoBehaviour
         _fsm.Update();
     }
 
-    public void WaypointSystem()
+    public void WaypointSystem(bool stateChanged)
     {
         if(_currentTarget != null)
         {
+            if (stateChanged)
+            {
+                _moving = false;
+                StartCoroutine("MoveToNextWaypoint");
+            }
             if((Vector3.Distance(transform.position, _currentTarget.position) <= 0.1f) && _moving)
             {
                 _moving = false;
@@ -92,6 +97,7 @@ public class Cat_NavMesh : MonoBehaviour
 
     IEnumerator MoveToNextWaypoint()
     {
+        Debug.Log("aa");
         if (!_inReverse)
         {
             _index++;
@@ -100,7 +106,7 @@ public class Cat_NavMesh : MonoBehaviour
         if(_index < waypoints.Count && !_inReverse)
         {
             if (_index == 1)
-                yield return new WaitForSeconds(Random.Range(1f, 2f));
+                yield return new WaitForSeconds(Random.Range(3f, 6f));
 
             _currentTarget = waypoints[_index];
         }
@@ -109,7 +115,7 @@ public class Cat_NavMesh : MonoBehaviour
             if (!_atEnd)
             {
                 _atEnd = true;
-                yield return new WaitForSeconds(Random.Range(1f, 2f));
+                yield return new WaitForSeconds(Random.Range(3f, 6f));
             }
 
             _index--;

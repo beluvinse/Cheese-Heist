@@ -15,7 +15,7 @@ public class ChaseState : State
     public override void OnEnter()
     {
         Debug.Log("!!!! mouse");
-        _cat.BuffSpeed(2);
+        _cat.BuffSpeed(1.5f);
     }
 
     public override void OnExit()
