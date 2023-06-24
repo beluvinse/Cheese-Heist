@@ -17,16 +17,21 @@ public class EnergyManager : MonoBehaviour
 
     private DateTime _nextHeartTime;
     private DateTime _lastAddedTime;
-    private int _restoreDuration = 30;
+    [SerializeField] private int _restoreDuration = 30;
 
     public UIManager ui;
 
     bool _restoring = false;
 
+
+    [SerializeField] string notifTitle = "Full Stamina";
+    [SerializeField] string notifText = "Tenes la stamina llena! Volve al juego";
+
     private void Start()
     {
         Load();
         StartCoroutine(RestoreRoutine());
+
     }
 
     public void UseHeart()

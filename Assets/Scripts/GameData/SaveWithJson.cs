@@ -39,14 +39,12 @@ public class SaveWithJson : MonoBehaviour
 
     public int GetHearts()
     {
-        path = Application.persistentDataPath + "/data.json";
         LoadGame();
         return saveData.lives;
     }
     
     public int GetCheetos()
     {
-        path = Application.persistentDataPath + "/data.json";
         LoadGame();
         return saveData.cheetos;
     }

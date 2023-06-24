@@ -2597,6 +2597,50 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &441835060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 441835062}
+  - component: {fileID: 441835061}
+  m_Layer: 0
+  m_Name: NotificationSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &441835061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441835060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3072019b151a2e84e88943c033daa5b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &441835062
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441835060}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1961.6683, y: 947.6228, z: 4.0327787}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &450184306
 GameObject:
   m_ObjectHideFlags: 0
@@ -3588,6 +3632,7 @@ GameObject:
   m_Component:
   - component: {fileID: 674732522}
   - component: {fileID: 674732521}
+  - component: {fileID: 674732523}
   m_Layer: 0
   m_Name: HeartManager
   m_TagString: Untagged
@@ -3612,7 +3657,10 @@ MonoBehaviour:
   _textTimer: {fileID: 388861600}
   _textTimer2: {fileID: 791232461}
   _maxHearts: 20
+  _restoreDuration: 30
   ui: {fileID: 982188484}
+  notifTitle: Full Stamina
+  notifText: Tenes la stamina llena! Volve al juego
 --- !u!4 &674732522
 Transform:
   m_ObjectHideFlags: 0
@@ -3628,6 +3676,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &674732523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674732520}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1443895426b8441458643c61a306b1f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxStamina: 20
+  timeToRecharge: 30
+  staminaText: {fileID: 963969242}
+  stamina2Text: {fileID: 1628163209}
+  timertText: {fileID: 388861600}
+  timertText2: {fileID: 791232461}
+  notifTitle: Full Stamina
+  notifText: Tenes la stamina llena, volve al juego
 --- !u!1 &681864288
 GameObject:
   m_ObjectHideFlags: 0
@@ -4792,6 +4860,8 @@ MonoBehaviour:
   cheetosText2: {fileID: 994528065}
   heartsText: {fileID: 963969242}
   heartsText2: {fileID: 1628163209}
+  timerText: {fileID: 791232461}
+  timerText2: {fileID: 388861600}
 --- !u!1 &994528063
 GameObject:
   m_ObjectHideFlags: 0

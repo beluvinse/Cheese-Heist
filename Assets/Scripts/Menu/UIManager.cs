@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
     public TMP_Text cheetosText2;
     public TMP_Text heartsText;
     public TMP_Text heartsText2;
+    public TMP_Text timerText;
+    public TMP_Text timerText2;
     int _maxHearts;
 
     private void Start()
@@ -27,6 +29,12 @@ public class UIManager : MonoBehaviour
         var hearts = PlayerData.Instance.GetHearts();
         heartsText.text = "" + hearts;
         heartsText2.text = "" + hearts + "/" + _maxHearts;
+
+        if(hearts >= _maxHearts)
+        {
+            timerText.text = ("Full!");
+            timerText2.text = ("Full!");
+        }
     }
 
     public void UpdateCheetos()
