@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +25,7 @@ public class Cat_NavMesh : MonoBehaviour
 
     [Header("Field of View")]
     [Range(0f, 4f)] [SerializeField] float _chaseRadius;
+    [Range(0f, 4f)] [SerializeField] float _destroyRadius;
     [Range(0f,180f)][SerializeField] float _angleView;
     [SerializeField] LayerMask _targetMask;
     [SerializeField] LayerMask _obstacleMask;
@@ -94,6 +96,18 @@ public class Cat_NavMesh : MonoBehaviour
     
     public void SetBaseSpeed(){_speed = _baseSpeed;}
 
+    public static event Action OnMouseEaten;
+
+    public void CheckDestroyDistance()
+    {
+        if (Vector3.Distance(transform.position, mouse.transform.position) < _destroyRadius)
+        {
+            Debug.Log("morfadium");
+            OnMouseEaten?.Invoke();
+            mouse.gameObject.SetActive(false);
+        }
+    }
+
 
     IEnumerator MoveToNextWaypoint()
     {
@@ -106,7 +120,7 @@ public class Cat_NavMesh : MonoBehaviour
         if(_index < waypoints.Count && !_inReverse)
         {
             if (_index == 1)
-                yield return new WaitForSeconds(Random.Range(3f, 6f));
+                yield return new WaitForSeconds(UnityEngine.Random.Range(3f, 6f));
 
             _currentTarget = waypoints[_index];
         }
@@ -115,7 +129,7 @@ public class Cat_NavMesh : MonoBehaviour
             if (!_atEnd)
             {
                 _atEnd = true;
-                yield return new WaitForSeconds(Random.Range(3f, 6f));
+                yield return new WaitForSeconds(UnityEngine.Random.Range(3f, 6f));
             }
 
             _index--;
@@ -142,6 +156,7 @@ public class Cat_NavMesh : MonoBehaviour
         Vector3 viewAngleA = DirectionFromAngle(transform.eulerAngles.y, -_angleView / 2);
         Vector3 viewAngleB = DirectionFromAngle(transform.eulerAngles.y, _angleView / 2);
         Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, _destroyRadius);
         Gizmos.DrawLine(transform.position, transform.position + viewAngleA * _chaseRadius);
         Gizmos.DrawLine(transform.position, transform.position + viewAngleB * _chaseRadius);
 

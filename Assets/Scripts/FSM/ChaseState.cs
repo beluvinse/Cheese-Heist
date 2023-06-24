@@ -36,6 +36,7 @@ public class ChaseState : State
         else
         {
             _cat.ChaseMouse();//pasar mouse por aca?
+            _cat.CheckDestroyDistance();
         }
     }
 
