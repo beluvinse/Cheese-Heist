@@ -9,39 +9,50 @@ public class UIManager : MonoBehaviour
     public TMP_Text cheetosText2;
     public TMP_Text heartsText;
     public TMP_Text heartsText2;
-    public TMP_Text timerText;
-    public TMP_Text timerText2;
+    //public TMP_Text timerText;
+    //public TMP_Text timerText2;
+    
     int _maxHearts;
+    [SerializeField] int _hearts;
+    [SerializeField] int _cheetos;
 
-    private void Start()
+    private void Awake()
     {
-        _maxHearts = PlayerData.Instance.GetMaxHearts();
+        StartCoroutine(UpdateUI());
     }
 
-    private void Update()
+    private IEnumerator UpdateUI()
     {
-        //UpdateHearts();
+        yield return new WaitForSeconds(.2f);
+        _maxHearts = PlayerData.Instance.GetMaxHearts();
+        _hearts = PlayerData.Instance.GetHearts();
+        _cheetos = PlayerData.Instance.GetCheetos();
         UpdateCheetos();
+        UpdateHearts();
     }
 
     public void UpdateHearts()
     {
-        var hearts = PlayerData.Instance.GetHearts();
-        heartsText.text = "" + hearts;
-        heartsText2.text = "" + hearts + "/" + _maxHearts;
+        _hearts = PlayerData.Instance.GetHearts();
 
-        if(hearts >= _maxHearts)
+        heartsText.text = "" + _hearts;
+        heartsText2.text = "" + _hearts + "/" + _maxHearts;
+
+        /*if (_hearts >= _maxHearts)
         {
             timerText.text = ("Full!");
             timerText2.text = ("Full!");
         }
+        else*/
+
     }
 
     public void UpdateCheetos()
     {
-        var cheetos = PlayerData.Instance.GetCheetos();
-        cheetosText.text = "" + cheetos;
-        cheetosText2.text = "" + cheetos;
+        _cheetos = PlayerData.Instance.GetCheetos();
+
+        cheetosText.text = "" + _cheetos;
+        cheetosText2.text = "" + _cheetos;
     }
 
 }

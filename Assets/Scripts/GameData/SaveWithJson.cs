@@ -10,7 +10,6 @@ public class SaveWithJson : MonoBehaviour
     public static SaveWithJson Instance;
     string path;
     [SerializeField] SaveData saveData = new SaveData();
-    public PlayerData playerData;
 
     void Awake()
     {
@@ -23,9 +22,12 @@ public class SaveWithJson : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
         path = Application.persistentDataPath + "/data.json";
         Debug.Log(path);
+      
      }
+
 
     public void SetHearts(int val)
     {
@@ -51,8 +53,8 @@ public class SaveWithJson : MonoBehaviour
 
     public void SaveGame()
     {   
-        saveData.lives = playerData.GetHearts();
-        saveData.cheetos = playerData.GetCheetos();
+        saveData.lives = PlayerData.Instance.GetHearts();
+        saveData.cheetos = PlayerData.Instance.GetCheetos();
         string json = JsonUtility.ToJson(saveData, true);
         File.WriteAllText(path, json);
         Debug.Log(json);
@@ -60,10 +62,10 @@ public class SaveWithJson : MonoBehaviour
 
     public void LoadGame()
     {
+        Debug.Log(path);
         string json = File.ReadAllText(path);
         JsonUtility.FromJsonOverwrite(json, saveData);
         Debug.Log(json);
-
     }
 
     public void Delete()

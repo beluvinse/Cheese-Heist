@@ -10,7 +10,7 @@ public class MenuManager : MonoBehaviour
     public GameObject shopPanel;
     public GameObject optionsPanel;
     public EnergyManager heartManager;
-
+    public UIManager uiManager;
 
     public void LevelPanel()
     {
@@ -42,7 +42,8 @@ public class MenuManager : MonoBehaviour
     {
         if (PlayerData.Instance.GetHearts() > 0)
         {
-            heartManager.UseHeart();
+            PlayerData.Instance.AddHearts(-1);
+            uiManager.UpdateHearts();
             SaveWithJson.Instance.SaveGame();
             SceneManager.LoadScene("SampleScene");
         }

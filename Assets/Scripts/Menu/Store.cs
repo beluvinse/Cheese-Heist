@@ -13,6 +13,10 @@ public class Store : MonoBehaviour
     {    
         _cheetos = PlayerData.Instance.GetCheetos(); 
         _hearts = PlayerData.Instance.GetHearts();
+    }
+
+    private void Start()
+    {
         _maxHearts = PlayerData.Instance.GetMaxHearts();
     }
 
@@ -24,7 +28,7 @@ public class Store : MonoBehaviour
         {
             PlayerData.Instance.AddHearts(1);
             PlayerData.Instance.SetCheetos(_cheetos - 1);
-            //uiManager.UpdateCheetos();
+            uiManager.UpdateCheetos();
             uiManager.UpdateHearts();
         }
 
@@ -38,6 +42,7 @@ public class Store : MonoBehaviour
         {
             PlayerData.Instance.AddHearts(5);
             PlayerData.Instance.SetCheetos(_cheetos - 5);
+            uiManager.UpdateCheetos();
             uiManager.UpdateHearts();
         }
     }
@@ -50,6 +55,7 @@ public class Store : MonoBehaviour
         {
             PlayerData.Instance.AddHearts(20);
             PlayerData.Instance.SetCheetos(_cheetos - 15);
+            uiManager.UpdateCheetos();
             uiManager.UpdateHearts();
         }
     }

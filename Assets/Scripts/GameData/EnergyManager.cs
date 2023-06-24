@@ -24,8 +24,8 @@ public class EnergyManager : MonoBehaviour
     bool _restoring = false;
 
 
-    [SerializeField] string notifTitle = "Full Stamina";
-    [SerializeField] string notifText = "Tenes la stamina llena! Volve al juego";
+    //[SerializeField] string notifTitle = "Full Stamina";
+    //[SerializeField] string notifText = "Tenes la stamina llena! Volve al juego";
 
     private void Start()
     {

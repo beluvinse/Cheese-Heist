@@ -8,11 +8,10 @@ public class StaminaSystem : MonoBehaviour
 {
     [SerializeField] int maxStamina = 10;
     [SerializeField] float timeToRecharge = 5f;
-    int currentStamina;
-
+    [SerializeField] int currentStamina;
 
     [SerializeField] TextMeshProUGUI staminaText = null;
-    [SerializeField] TextMeshProUGUI stamina2Text = null;
+    [SerializeField] TextMeshProUGUI staminaText2 = null;
     [SerializeField] TextMeshProUGUI timertText = null;
     [SerializeField] TextMeshProUGUI timertText2 = null;
 
@@ -22,21 +21,32 @@ public class StaminaSystem : MonoBehaviour
     DateTime lastStaminaTime;
 
     [SerializeField] string notifTitle = "Full Stamina";
-    [SerializeField] string notifText = "Tenes la stamina al borde de colapzar, volve al juego";
+    [SerializeField] string notifText = "Tenes la stamina al borde de colapsar, volve al juego";
 
     int id;
 
     TimeSpan timer;
 
+    public UIManager uiManager;
+
+    void Awake()
+    {
+        uiManager = FindObjectOfType<UIManager>();
+    }
 
     void Start()
     {
-        if (!PlayerPrefs.HasKey("currentStamina"))
-        {
-            PlayerPrefs.SetInt("currentStamina", maxStamina);
-        }
+        //if (!PlayerPrefs.HasKey("currentStamina"))
+        //{
+        //   PlayerPrefs.SetInt("currentStamina", maxStamina);
+        //}
 
-        Load();
+        StartCoroutine(Load());
+        UpdateTimer();
+
+        nextStaminaTime = StringToDateTime(PlayerPrefs.GetString("nextStaminaTime"));
+        lastStaminaTime = StringToDateTime(PlayerPrefs.GetString("lastStaminaTime"));
+
         StartCoroutine(RechargeStamina());
 
         if (currentStamina < maxStamina)
@@ -63,10 +73,16 @@ public class StaminaSystem : MonoBehaviour
 
             while (currentTime > nextTime)
             {
-                if (currentStamina >= maxStamina) break;
+                if (currentStamina >= maxStamina)
+                {
+                    UpdateTimer();
+                    break;
+                }
+                
 
                 currentStamina++;
                 staminaAdd = true;
+                PlayerData.Instance.AddHearts(1);
                 UpdateStamina();
 
                 DateTime timeToAdd = nextTime;
@@ -75,7 +91,6 @@ public class StaminaSystem : MonoBehaviour
                     timeToAdd = lastStaminaTime;
 
                 nextTime = AddDuration(timeToAdd, timeToRecharge);
-
             }
 
             if (staminaAdd)
@@ -87,6 +102,7 @@ public class StaminaSystem : MonoBehaviour
             UpdateTimer();
             UpdateStamina();
             Save();
+
 
             yield return new WaitForEndOfFrame();
         }
@@ -137,30 +153,33 @@ public class StaminaSystem : MonoBehaviour
         timer = nextStaminaTime - DateTime.Now;
 
         timertText.text = timer.Minutes.ToString("00") + ":" + timer.Seconds.ToString("00");
+        timertText2.text = timer.Minutes.ToString("00") + ":" + timer.Seconds.ToString("00");
     }
 
     void UpdateStamina()
     {
-        staminaText.text = currentStamina.ToString() + " / " + maxStamina.ToString();
-        staminaText.text = currentStamina.ToString() + " / " + maxStamina.ToString();
+        //staminaText.text = currentStamina.ToString();
+        //staminaText2.text = currentStamina.ToString() + " / " + maxStamina.ToString();
 
-        UpdateTimer();
+        uiManager.UpdateHearts();
     }
 
     void Save()
     {
-        PlayerPrefs.SetInt("currentStamina", currentStamina);
+        currentStamina = PlayerData.Instance.GetHearts();
         PlayerPrefs.SetString("nextStaminaTime", nextStaminaTime.ToString());
         PlayerPrefs.SetString("lastStaminaTime", lastStaminaTime.ToString());
     }
 
-    void Load()
+    private IEnumerator Load()
     {
-        currentStamina = PlayerPrefs.GetInt("currentStamina");
-
-        nextStaminaTime = StringToDateTime(PlayerPrefs.GetString("nextStaminaTime"));
-        lastStaminaTime = StringToDateTime(PlayerPrefs.GetString("lastStaminaTime"));
+        //yield return new WaitForSeconds(.2f);
+        currentStamina = PlayerData.Instance.GetHearts();
+        Debug.Log(currentStamina);
+        UpdateStamina();
+        yield return null;
     }
+
 
     DateTime StringToDateTime(string date)
     {
