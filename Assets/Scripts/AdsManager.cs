@@ -11,11 +11,13 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
     [SerializeField] Button _showAdButton;
     private void Start()
     {
-        Advertisement.Initialize(_gameID);
+        Advertisement.Initialize(_gameID, true, this);
+        
     }
 
     public void OnInitializationComplete()
     {
+        Advertisement.Load(_adID, this);
     }
 
     public void OnInitializationFailed(UnityAdsInitializationError error, string message)
