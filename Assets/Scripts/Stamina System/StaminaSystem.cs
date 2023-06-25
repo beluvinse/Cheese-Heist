@@ -41,11 +41,15 @@ public class StaminaSystem : MonoBehaviour
         //   PlayerPrefs.SetInt("currentStamina", maxStamina);
         //}
 
-        StartCoroutine(Load());
+        //StartCoroutine(Load());
+        Load();
         UpdateTimer();
 
         nextStaminaTime = StringToDateTime(PlayerPrefs.GetString("nextStaminaTime"));
         lastStaminaTime = StringToDateTime(PlayerPrefs.GetString("lastStaminaTime"));
+
+        Debug.Log(nextStaminaTime);
+        Debug.Log(lastStaminaTime);
 
         StartCoroutine(RechargeStamina());
 
@@ -53,7 +57,7 @@ public class StaminaSystem : MonoBehaviour
         {
             timer = nextStaminaTime - DateTime.Now;
             id = NotificationManager.Instance.DisplayNotification(notifTitle, notifText,
-                AddDuration(DateTime.Now, ((maxStamina - (currentStamina) + 1) * timeToRecharge) + 1 + (float)timer.TotalSeconds));
+                AddDuration(DateTime.Now, ((maxStamina - (currentStamina) + 1) * timeToRecharge) + 1 - (float)timer.TotalSeconds));
         }
     }
 
@@ -88,7 +92,10 @@ public class StaminaSystem : MonoBehaviour
                 DateTime timeToAdd = nextTime;
 
                 if (lastStaminaTime > nextTime)
+                {
                     timeToAdd = lastStaminaTime;
+                    Debug.Log("entre al if que corrige las cosas!!!");
+                }
 
                 nextTime = AddDuration(timeToAdd, timeToRecharge);
             }
@@ -172,14 +179,28 @@ public class StaminaSystem : MonoBehaviour
         PlayerPrefs.SetString("lastStaminaTime", lastStaminaTime.ToString());
     }
 
-    private IEnumerator Load()
+    /*private IEnumerator Load()
     {
         yield return new WaitForSeconds(10f);
-        //currentStamina = PlayerPrefs.GetInt("currentStamina");
-        currentStamina = PlayerData.Instance.GetHearts();
+        currentStamina = PlayerPrefs.GetInt("currentStamina");
+        PlayerData.Instance.SetHearts(currentStamina);
+
+        //currentStamina = PlayerData.Instance.GetHearts();
+        //PlayerPrefs.SetInt("currentStamina", currentStamina);
+        Debug.Log("currentStamina:");
         Debug.Log(currentStamina);
         UpdateStamina();
         yield return null;
+    }*/ private void Load()
+    {
+        currentStamina = PlayerPrefs.GetInt("currentStamina");
+        PlayerData.Instance.SetHearts(currentStamina);
+
+        //currentStamina = PlayerData.Instance.GetHearts();
+        //PlayerPrefs.SetInt("currentStamina", currentStamina);
+        Debug.Log("currentStamina:");
+        Debug.Log(currentStamina);
+        UpdateStamina();
     }
 
 
