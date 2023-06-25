@@ -8,15 +8,37 @@ public class WallHole : MonoBehaviour, IInteractable
     public Transform @in;
 
     public GameObject mouseView;
+    public GameObject Canvas;
+    public GameObject buttonIn;
+    public GameObject buttonOut;
+    public GameObject buttonConnection;
 
     [SerializeField] WallHole Connection;
 
     private MouseController _mouse;
-    
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other == _mouse.GetComponent<Collider>()) { Canvas.SetActive(false); }
+    }
+
     public void Interact(MouseController t)
     {
         _mouse = t;
+        Canvas.SetActive(true);
         if (_mouse.IsInWallHole)
+        {
+            buttonOut.SetActive(true);
+            buttonConnection.SetActive(true);
+            buttonIn.SetActive(false);
+        }
+        else
+        {
+            buttonConnection.SetActive(false);
+            buttonOut.SetActive(false);
+            buttonIn.SetActive(true);
+        }
+        /*if (_mouse.IsInWallHole)
         {
             Debug.Log("press O to exit");
             if (Input.GetKeyDown(KeyCode.O))
@@ -43,7 +65,19 @@ public class WallHole : MonoBehaviour, IInteractable
                 mouseView.gameObject.SetActive(true);
 
             }
-        }
+        }*/
+    }
+
+    public void GetIn()
+    {
+        _mouse.EnterWallHole(@in);
+        mouseView.gameObject.SetActive(true);
+    }
+
+    public void GetOut()
+    {
+        mouseView.gameObject.SetActive(false);
+        _mouse.ExitWallHole(@out);
     }
 
     public void GoToOtherHole() {
