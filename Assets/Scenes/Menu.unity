@@ -4103,7 +4103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxStamina: 20
-  timeToRecharge: 59
+  timeToRecharge: 10
   currentStamina: 0
   staminaText: {fileID: 963969242}
   staminaText2: {fileID: 1628163209}

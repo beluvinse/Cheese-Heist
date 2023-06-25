@@ -28,13 +28,13 @@ public class PlayerData : MonoBehaviour
     public void AddHearts(int val)
     {
        _hearts = _hearts + val;
-        SaveWithJson.Instance.SetHearts(_hearts); //no se si deberia hacerlo aca pero bueno
+        //SaveWithJson.Instance.SetHearts(_hearts); //no se si deberia hacerlo aca pero bueno
     }
 
     public void SetCheetos(int val)
     {
         _cheetos = val;
-        SaveWithJson.Instance.SetCheetos(_cheetos);
+        //SaveWithJson.Instance.SetCheetos(_cheetos);
     }
 
     public void AddCheetos()
@@ -64,7 +64,10 @@ public class PlayerData : MonoBehaviour
     private void Start()
     {
         _hearts = SaveWithJson.Instance.GetHearts();
+        Debug.LogWarning(_hearts);
+        
         _cheetos = SaveWithJson.Instance.GetCheetos();
+        Debug.LogWarning(_cheetos);
     }
 
 }

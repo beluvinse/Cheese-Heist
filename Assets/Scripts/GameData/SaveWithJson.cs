@@ -24,7 +24,7 @@ public class SaveWithJson : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+
         CreatePath();
     }
 
@@ -46,6 +46,7 @@ public class SaveWithJson : MonoBehaviour
     public void SetHearts(int val)
     {
         saveData.lives = val;
+        //SaveGame();
     }
 
     public void SetCheetos(int val)

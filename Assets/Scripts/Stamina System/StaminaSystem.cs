@@ -167,6 +167,7 @@ public class StaminaSystem : MonoBehaviour
     void Save()
     {
         currentStamina = PlayerData.Instance.GetHearts();
+        PlayerPrefs.SetInt("currentStamina", currentStamina);
         PlayerPrefs.SetString("nextStaminaTime", nextStaminaTime.ToString());
         PlayerPrefs.SetString("lastStaminaTime", lastStaminaTime.ToString());
     }
@@ -174,6 +175,7 @@ public class StaminaSystem : MonoBehaviour
     private IEnumerator Load()
     {
         //yield return new WaitForSeconds(.2f);
+        //currentStamina = PlayerPrefs.GetInt("currentStamina");
         currentStamina = PlayerData.Instance.GetHearts();
         Debug.Log(currentStamina);
         UpdateStamina();

@@ -49,6 +49,11 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    private void OnApplicationQuit()
+    {
+       SaveWithJson.Instance.SaveGame();
+    }
+
     public void ExitGame()
     {
         Application.Quit();
