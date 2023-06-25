@@ -226,8 +226,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d48a980546d3e643bb6644081e93231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  out: {fileID: 0}
-  in: {fileID: 0}
+  out: {fileID: 6068660730162632510}
+  in: {fileID: 7712142026232229518}
   mouseView: {fileID: 579154983142233207}
   Connection: {fileID: 0}
 --- !u!65 &5551714698332130219
