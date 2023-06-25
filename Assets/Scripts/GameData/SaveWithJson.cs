@@ -10,6 +10,8 @@ public class SaveWithJson : MonoBehaviour
     public static SaveWithJson Instance;
     string path;
     [SerializeField] SaveData saveData = new SaveData();
+    [SerializeField] int _heartsDefault;
+    [SerializeField] int _cheetosDefault;
 
     void Awake()
     {
@@ -23,10 +25,22 @@ public class SaveWithJson : MonoBehaviour
             Destroy(gameObject);
         }
         
+        CreatePath();
+    }
+
+    void CreatePath()
+    {
         path = Application.persistentDataPath + "/data.json";
-        Debug.Log(path);
-      
-     }
+        //path = path.Replace("/", "\\");
+        
+        if(!File.Exists(path))
+        {
+            saveData.lives = _heartsDefault;
+            saveData.cheetos = _cheetosDefault;
+            string json = JsonUtility.ToJson(saveData, true);
+            File.WriteAllText(path, json);
+        }
+    }
 
 
     public void SetHearts(int val)
@@ -44,7 +58,7 @@ public class SaveWithJson : MonoBehaviour
         LoadGame();
         return saveData.lives;
     }
-    
+
     public int GetCheetos()
     {
         LoadGame();
@@ -52,7 +66,7 @@ public class SaveWithJson : MonoBehaviour
     }
 
     public void SaveGame()
-    {   
+    {
         saveData.lives = PlayerData.Instance.GetHearts();
         saveData.cheetos = PlayerData.Instance.GetCheetos();
         string json = JsonUtility.ToJson(saveData, true);
@@ -62,18 +76,31 @@ public class SaveWithJson : MonoBehaviour
 
     public void LoadGame()
     {
-        Debug.Log(path);
-        string json = File.ReadAllText(path);
-        JsonUtility.FromJsonOverwrite(json, saveData);
-        Debug.Log(json);
+        if (File.Exists(path))
+        {
+            Debug.Log(path);
+            string json = File.ReadAllText(path);
+            Debug.Log(json);
+            JsonUtility.FromJsonOverwrite(json, saveData);
+        }
+        else
+            CreatePath();
+
     }
 
     public void Delete()
     {
         //FileUtil.DeleteFileOrDirectory(path);
-        saveData.cheetos = 0;
-        PlayerData.Instance.SetCheetos(saveData.cheetos);
-        saveData.lives = PlayerData.Instance.GetMaxHearts();
-        PlayerData.Instance.SetHearts(saveData.lives);
+        //saveData.cheetos = 0;
+        //PlayerData.Instance.SetCheetos(saveData.cheetos);
+        //saveData.lives = PlayerData.Instance.GetMaxHearts();
+        //PlayerData.Instance.SetHearts(saveData.lives);
+
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+
+            CreatePath();
+        }
     }
 }
