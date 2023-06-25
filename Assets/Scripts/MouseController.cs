@@ -43,18 +43,27 @@ public class MouseController : SteeringAgent
     }
 
     float _lastYPos;
+    private Renderer _renderer;
+
+    private void Start()
+    {
+        _renderer = GetComponentInChildren<SkinnedMeshRenderer>();
+    }
 
     public void EnterWallHole(Transform inPos)
     {
+        _renderer.gameObject.SetActive(false);
         _lastYPos = transform.position.y;
-        transform.position = new Vector3(inPos.position.x, _lastYPos, inPos.position.z);
+        transform.position = new Vector3(inPos.position.x, inPos.position.y, inPos.position.z);
         _isInWallHole = true;
 
     }
 
     public void ExitWallHole(Transform outPos)
     {
-        transform.position = new Vector3(outPos.position.x, _lastYPos, outPos.position.z);
+        _renderer.gameObject.SetActive(true);
+
+        transform.position = new Vector3(outPos.position.x, outPos.position.y, outPos.position.z);
         _isInWallHole = false;
 
     }

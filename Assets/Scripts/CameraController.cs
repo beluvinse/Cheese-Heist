@@ -9,6 +9,8 @@ public class CameraController : MonoBehaviour
     [Range(1, 5)] [SerializeField] float height;
     [Range(0, 5)] [SerializeField] float center;
 
+    [SerializeField] Vector3 minPos, maxPos;
+
     float _startingPlayerHeight;
 
     // Start is called before the first frame update
@@ -21,6 +23,9 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         //if(!target.IsInWallHole)
-            transform.position = new Vector3(target.transform.position.x, height + (target.transform.position.y - _startingPlayerHeight), target.transform.position.z - center);
+            transform.position = new Vector3(Mathf.Clamp(target.transform.position.x, minPos.x, maxPos.x), 
+                height + (target.transform.position.y - _startingPlayerHeight),
+                Mathf.Clamp( target.transform.position.z - center, minPos.z, maxPos.z));
+
     }
 }
