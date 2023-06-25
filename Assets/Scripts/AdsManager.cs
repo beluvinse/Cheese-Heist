@@ -11,7 +11,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
     [SerializeField] Button _showAdButton;
     private void Start()
     {
-        Advertisement.Initialize(_gameID, true, this);
+        Advertisement.Initialize(_gameID, false, this);
         
     }
 
@@ -58,6 +58,8 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
             }
             else
                 Debug.Log("Algo fallo");
+
+            Advertisement.Load(_adID, this);
         }
     }
 
