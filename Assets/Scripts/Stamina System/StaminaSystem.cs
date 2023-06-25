@@ -174,7 +174,7 @@ public class StaminaSystem : MonoBehaviour
 
     private IEnumerator Load()
     {
-        //yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(10f);
         //currentStamina = PlayerPrefs.GetInt("currentStamina");
         currentStamina = PlayerData.Instance.GetHearts();
         Debug.Log(currentStamina);

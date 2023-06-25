@@ -26,6 +26,8 @@ public class SaveWithJson : MonoBehaviour
         }
 
         CreatePath();
+
+        Debug.LogWarning(PlayerData.Instance.GetHearts()) ;
     }
 
     void CreatePath()

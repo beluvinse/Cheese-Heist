@@ -9,7 +9,6 @@ public class MenuManager : MonoBehaviour
     public GameObject levelsPanel;
     public GameObject shopPanel;
     public GameObject optionsPanel;
-    public EnergyManager heartManager;
     public UIManager uiManager;
 
     public void LevelPanel()
