@@ -11,7 +11,7 @@ public class Cheto : MonoBehaviour, ICollectable
 
     public void Collect()
     {
-        PlayerData.Instance.AddCheetos();
+        PlayerData.Instance.AddCheetos(1);
         Debug.Log("Yum, chetos");
         OnChetoCollected?.Invoke();
         Destroy(this.gameObject);

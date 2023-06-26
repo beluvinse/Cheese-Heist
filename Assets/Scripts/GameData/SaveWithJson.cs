@@ -37,6 +37,7 @@ public class SaveWithJson : MonoBehaviour
         
         if(!File.Exists(path))
         {
+            Debug.Log("path no existe, se crea");
             saveData.lives = _heartsDefault;
             saveData.cheetos = _cheetosDefault;
             string json = JsonUtility.ToJson(saveData, true);
@@ -79,9 +80,10 @@ public class SaveWithJson : MonoBehaviour
 
     public void LoadGame()
     {
+        Debug.Log(path);
         if (File.Exists(path))
         {
-            Debug.Log(path);
+            Debug.Log("el path existe");
             string json = File.ReadAllText(path);
             Debug.Log(json);
             JsonUtility.FromJsonOverwrite(json, saveData);
@@ -102,7 +104,7 @@ public class SaveWithJson : MonoBehaviour
         if (File.Exists(path))
         {
             File.Delete(path);
-
+            Debug.Log("file deleted");
             CreatePath();
         }
     }

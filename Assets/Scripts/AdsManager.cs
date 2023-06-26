@@ -9,6 +9,8 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
     [SerializeField] string _gameID = "5326468";
     [SerializeField] string _adID = "Rewarded_Android";
     [SerializeField] Button _showAdButton;
+    [SerializeField] UIManager _uiManager;
+
     private void Start()
     {
         Advertisement.Initialize(_gameID, false, this);
@@ -50,10 +52,14 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
         {
             if (showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED))
             {
+                PlayerData.Instance.AddCheetos(10);
+                _uiManager.UpdateCheetos();
                 Debug.Log("Termino el anuncio");
             }
             else if (showCompletionState.Equals(UnityAdsShowCompletionState.SKIPPED))
             {
+                PlayerData.Instance.AddCheetos(5);
+                _uiManager.UpdateCheetos();
                 Debug.Log("Skipeo el anuncio, pocas recompensas");
             }
             else

@@ -17,9 +17,9 @@ public class PlayerData : MonoBehaviour
 
     public void SetHearts(int val)
     {
-         _hearts = val;
+        _hearts = val;
     }
-    
+
     public int GetMaxHearts()
     {
         return _maxHearts;
@@ -27,7 +27,7 @@ public class PlayerData : MonoBehaviour
 
     public void AddHearts(int val)
     {
-       _hearts = _hearts + val;
+        _hearts = _hearts + val;
         //SaveWithJson.Instance.SetHearts(_hearts); //no se si deberia hacerlo aca pero bueno
     }
 
@@ -37,15 +37,15 @@ public class PlayerData : MonoBehaviour
         //SaveWithJson.Instance.SetCheetos(_cheetos);
     }
 
-    public void AddCheetos()
+    public void AddCheetos(int val)
     {
-        _cheetos++;
+        _cheetos += val;
     }
 
     public int GetCheetos()
     {
         return _cheetos;
-    }    
+    }
 
     private void Awake()
     {
@@ -65,8 +65,8 @@ public class PlayerData : MonoBehaviour
     {
         //_hearts = SaveWithJson.Instance.GetHearts();
         //Debug.LogWarning(_hearts);
-        
-       
+
+
 
         _cheetos = SaveWithJson.Instance.GetCheetos();
         //Debug.LogWarning(_cheetos);
