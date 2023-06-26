@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589245, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11026,6 +11026,7 @@ MonoBehaviour:
   chetoSound: {fileID: 8300000, guid: 3d250bdddd4a6924293be5460e3bd521, type: 3}
   trapSound: {fileID: 8300000, guid: e23a7ce3ae80d73439564149690c1b33, type: 3}
   buttonSound: {fileID: 8300000, guid: b9346c80b7b72a94899a57f69aeb45f0, type: 3}
+  meowSound: {fileID: 8300000, guid: b72e00bdcc750be42b6bee0676764bfa, type: 3}
 --- !u!1 &1461528670
 GameObject:
   m_ObjectHideFlags: 0

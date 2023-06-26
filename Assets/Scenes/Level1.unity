@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589245, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1065,6 +1065,7 @@ MonoBehaviour:
   chetoSound: {fileID: 8300000, guid: 3d250bdddd4a6924293be5460e3bd521, type: 3}
   trapSound: {fileID: 8300000, guid: e23a7ce3ae80d73439564149690c1b33, type: 3}
   buttonSound: {fileID: 8300000, guid: b9346c80b7b72a94899a57f69aeb45f0, type: 3}
+  meowSound: {fileID: 8300000, guid: b72e00bdcc750be42b6bee0676764bfa, type: 3}
 --- !u!1 &202003197
 GameObject:
   m_ObjectHideFlags: 0
@@ -6250,7 +6251,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8983aaec20b489041a91bf9697ee53c4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.731
+      value: -3.85
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8983aaec20b489041a91bf9697ee53c4,
         type: 3}
@@ -6260,7 +6261,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8983aaec20b489041a91bf9697ee53c4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.299
+      value: 9.73
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8983aaec20b489041a91bf9697ee53c4,
         type: 3}
@@ -8341,7 +8342,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh61778
+  m_Name: pb_Mesh27720
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10668,8 +10669,8 @@ MonoBehaviour:
   - {fileID: 2141011806}
   - {fileID: 1018286281}
   - {fileID: 1066783834}
-  _chaseRadius: 2.04
-  _destroyRadius: 0.76
+  _chaseRadius: 1.61
+  _destroyRadius: 0.48
   _angleView: 69.2
   _targetMask:
     serializedVersion: 2
@@ -10722,7 +10723,7 @@ Rigidbody:
   m_GameObject: {fileID: 1919393751}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1.44
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -15122,6 +15123,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MouseTrap
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303192341637772522, guid: c042f2589cad19048a4beadfa7478b4c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8678733203309096528, guid: c042f2589cad19048a4beadfa7478b4c,
         type: 3}

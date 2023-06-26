@@ -118,7 +118,7 @@ public class Cat_NavMesh : MonoBehaviour
         if(_index < waypoints.Count && !_inReverse)
         {
             if (_index == 1)
-                yield return new WaitForSeconds(UnityEngine.Random.Range(3f, 6f));
+                yield return new WaitForSeconds(UnityEngine.Random.Range(0f, 3f));
 
             _currentTarget = waypoints[_index];
         }
@@ -127,7 +127,7 @@ public class Cat_NavMesh : MonoBehaviour
             if (!_atEnd)
             {
                 _atEnd = true;
-                yield return new WaitForSeconds(UnityEngine.Random.Range(3f, 6f));
+                yield return new WaitForSeconds(UnityEngine.Random.Range(0f, 3f));
             }
 
             _index--;
