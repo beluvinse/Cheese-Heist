@@ -36,11 +36,6 @@ public class StaminaSystem : MonoBehaviour
 
     void Start()
     {
-        //if (!PlayerPrefs.HasKey("currentStamina"))
-        //{
-        //   PlayerPrefs.SetInt("currentStamina", maxStamina);
-        //}
-
         Load();
         UpdateTimer();
 
@@ -193,9 +188,6 @@ public class StaminaSystem : MonoBehaviour
     {
         currentStamina = PlayerPrefs.GetInt("currentStamina");
         PlayerData.Instance.SetHearts(currentStamina);
-
-        //currentStamina = PlayerData.Instance.GetHearts();
-        //PlayerPrefs.SetInt("currentStamina", currentStamina);
         Debug.Log("currentStamina:");
         Debug.Log(currentStamina);
         uiManager.UpdateCheetos();
