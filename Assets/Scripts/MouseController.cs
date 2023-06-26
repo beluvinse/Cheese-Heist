@@ -21,7 +21,11 @@ public class MouseController : SteeringAgent
 
     Vector3 input;
 
-    public void OnDeath() { OnLose?.Invoke(); }
+    public void OnDeath() { 
+        OnLose?.Invoke();
+        this.gameObject.SetActive(false);
+
+    }
 
     void FixedUpdate()
     {

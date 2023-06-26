@@ -103,7 +103,6 @@ public class Cat_NavMesh : MonoBehaviour
         {
             Debug.Log("morfadium");
             mouse.OnDeath();
-            mouse.gameObject.SetActive(false);
         }
     }
 

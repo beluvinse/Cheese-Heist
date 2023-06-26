@@ -7,14 +7,50 @@ public class FireHazard : MonoBehaviour
     [SerializeField] float _durationTime;
     [SerializeField] float _waitingTime;
 
-    void Update()
+    public ParticleSystem fuegoo;
+
+    private bool isTurnedOn = false;
+
+    private float _count = 0;
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+
+        var m = other.GetComponent<MouseController>();
+        if(m && isTurnedOn) {
+            Debug.LogWarning("AAAAAAAAAAAAA");
+            m.OnDeath(); 
+        }
     }
 
+    private void Start()
+    {
+        fuegoo.gameObject.SetActive(false);
+    }
+
+    void Update()
+    {
+        if(_count < _waitingTime)
+        {
+            _count += Time.deltaTime;
+        }
+        else
+        {
+            _count = 0;
+            StartCoroutine(Activate());
+        }
+    }
+
+   
+   
 
     IEnumerator Activate()
     {
-         yield return new WaitForSeconds(_waitingTime);
+        fuegoo.gameObject.SetActive(true);
+        isTurnedOn = true;
+        yield return new WaitForSeconds(_durationTime);
+        fuegoo.gameObject.SetActive(false);
+        isTurnedOn = false;
+
     }
 }
