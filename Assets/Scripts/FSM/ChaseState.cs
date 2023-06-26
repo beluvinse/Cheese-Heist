@@ -30,7 +30,7 @@ public class ChaseState : State
         var mouseFound = _cat.FOV.FieldOfViewCheck();
 
 
-        if (mouseFound == null)
+        if (mouseFound == null || _cat.mouse.IsInWallHole)
         {
             fsm.ChangeState(States.Patrol);
         }

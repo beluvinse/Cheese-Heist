@@ -106,7 +106,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.0815273
+    agentRadius: 0.14
     agentHeight: 0.2303002
     agentSlope: 45
     agentClimb: 0.1
@@ -114,7 +114,7 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.027175767
+    cellSize: 0.046666667
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: cfcbe11d3e29e754699408a0c8473d09, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 8b4b1441c22391641a7664d5e7028809, type: 2}
 --- !u!1001 &4163379
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3489,9 +3489,9 @@ LightingSettings:
   m_AlbedoBoost: 1
   m_IndirectOutputScale: 1
   m_UsingShadowmask: 1
-  m_BakeBackend: 1
+  m_BakeBackend: 2
   m_LightmapMaxSize: 1024
-  m_BakeResolution: 40
+  m_BakeResolution: 20
   m_Padding: 2
   m_LightmapCompression: 3
   m_AO: 0
@@ -3518,8 +3518,8 @@ LightingSettings:
   m_PVREnvironmentSampleCount: 256
   m_PVREnvironmentReferencePointCount: 2048
   m_LightProbeSampleCountMultiplier: 4
-  m_PVRBounces: 2
-  m_PVRMinBounces: 1
+  m_PVRBounces: 4
+  m_PVRMinBounces: 4
   m_PVREnvironmentMIS: 1
   m_PVRFilteringMode: 1
   m_PVRDenoiserTypeDirect: 1
@@ -3666,7 +3666,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.90508515, b: 0.6462264, a: 1}
-  m_Intensity: 1.6
+  m_Intensity: 1.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -3705,7 +3705,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 1
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -8197,6 +8197,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CheetosBag (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2630067630029143231, guid: ea67964e96716b74ea80e9bc7bc41cf4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3401396668893210117, guid: ea67964e96716b74ea80e9bc7bc41cf4,
         type: 3}
       propertyPath: m_RootOrder
@@ -8342,7 +8347,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh27720
+  m_Name: pb_Mesh97772
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9372,6 +9377,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CheetosBag (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2630067630029143231, guid: ea67964e96716b74ea80e9bc7bc41cf4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3401396668893210117, guid: ea67964e96716b74ea80e9bc7bc41cf4,
         type: 3}
       propertyPath: m_RootOrder
@@ -9820,6 +9830,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cookery_Plate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6ed817a5331a1d9448254e67d6d7b6e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ed817a5331a1d9448254e67d6d7b6e4, type: 3}
@@ -13000,6 +13015,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: F2_Furni_TableDining
       objectReference: {fileID: 0}
+    - target: {fileID: 8157253079878642997, guid: fa0b8802fd9890747809f16a14de1138,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8826970442222860175, guid: fa0b8802fd9890747809f16a14de1138,
         type: 3}
       propertyPath: m_RootOrder
@@ -13479,6 +13499,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CheetosBag
+      objectReference: {fileID: 0}
+    - target: {fileID: 2630067630029143231, guid: ea67964e96716b74ea80e9bc7bc41cf4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3401396668893210117, guid: ea67964e96716b74ea80e9bc7bc41cf4,
         type: 3}
@@ -14215,6 +14240,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Broom
+      objectReference: {fileID: 0}
+    - target: {fileID: 5809927363776117684, guid: 92a633ebc37dd3c47bd637a5ed67d257,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6623337697148805390, guid: 92a633ebc37dd3c47bd637a5ed67d257,
         type: 3}
@@ -15128,6 +15158,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303192341637772522, guid: c042f2589cad19048a4beadfa7478b4c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8678733203309096528, guid: c042f2589cad19048a4beadfa7478b4c,
         type: 3}
