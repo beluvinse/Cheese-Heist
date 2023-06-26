@@ -10,8 +10,8 @@ public class StaminaSystem : MonoBehaviour
     [SerializeField] float timeToRecharge = 5f;
     [SerializeField] int currentStamina;
 
-    [SerializeField] TextMeshProUGUI staminaText = null;
-    [SerializeField] TextMeshProUGUI staminaText2 = null;
+    //[SerializeField] TextMeshProUGUI staminaText = null;
+    //[SerializeField] TextMeshProUGUI staminaText2 = null;
     [SerializeField] TextMeshProUGUI timertText = null;
     [SerializeField] TextMeshProUGUI timertText2 = null;
 

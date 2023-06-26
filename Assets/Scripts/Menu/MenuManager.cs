@@ -44,7 +44,7 @@ public class MenuManager : MonoBehaviour
             PlayerData.Instance.AddHearts(-1);
             uiManager.UpdateHearts();
             SaveWithJson.Instance.SaveGame();
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("Level1");
         }
     }
 

@@ -18,7 +18,6 @@ public class MouseController : SteeringAgent
 
     public static event Action OnLose;
 
-
     Vector3 input;
 
     public void OnDeath() { 

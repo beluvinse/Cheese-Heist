@@ -47,6 +47,7 @@ public class CanvasManager : MonoBehaviour
 
     private void OnEnable()
     {
+        MouseController.OnLose += LoseCanvas;
         Cat.OnMouseEaten += LoseCanvas;
         Cheese.OnCheeseCollected += WinCanvas;
     }
@@ -54,6 +55,7 @@ public class CanvasManager : MonoBehaviour
     private void OnDisable()
     {
         Cat.OnMouseEaten -= LoseCanvas;
+        MouseController.OnLose -= LoseCanvas;
         Cheese.OnCheeseCollected -= WinCanvas;
     }
 
