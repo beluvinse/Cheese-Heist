@@ -96,14 +96,13 @@ public class Cat_NavMesh : MonoBehaviour
     
     public void SetBaseSpeed(){_speed = _baseSpeed;}
 
-    public static event Action OnMouseEaten;
 
     public void CheckDestroyDistance()
     {
         if (Vector3.Distance(transform.position, mouse.transform.position) < _destroyRadius)
         {
             Debug.Log("morfadium");
-            OnMouseEaten?.Invoke();
+            mouse.OnDeath();
             mouse.gameObject.SetActive(false);
         }
     }

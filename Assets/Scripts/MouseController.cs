@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +16,12 @@ public class MouseController : SteeringAgent
 
     public Animator myAnim;
 
+    public static event Action OnLose;
+
+
     Vector3 input;
+
+    public void OnDeath() { OnLose?.Invoke(); }
 
     void FixedUpdate()
     {
@@ -62,7 +68,6 @@ public class MouseController : SteeringAgent
     public void ExitWallHole(Transform outPos)
     {
         _renderer.gameObject.SetActive(true);
-
         transform.position = new Vector3(outPos.position.x, outPos.position.y, outPos.position.z);
         _isInWallHole = false;
 
