@@ -41,7 +41,6 @@ public class StaminaSystem : MonoBehaviour
         //   PlayerPrefs.SetInt("currentStamina", maxStamina);
         //}
 
-        //StartCoroutine(Load());
         Load();
         UpdateTimer();
 
@@ -57,7 +56,7 @@ public class StaminaSystem : MonoBehaviour
         {
             timer = nextStaminaTime - DateTime.Now;
             id = NotificationManager.Instance.DisplayNotification(notifTitle, notifText,
-                AddDuration(DateTime.Now, ((maxStamina - (currentStamina) + 1) * timeToRecharge) + 1 - (float)timer.TotalSeconds));
+                AddDuration(DateTime.Now, ((maxStamina - (currentStamina) + 1) * timeToRecharge) + 1 + (float)timer.TotalSeconds));
         }
     }
 
@@ -169,6 +168,17 @@ public class StaminaSystem : MonoBehaviour
         //staminaText2.text = currentStamina.ToString() + " / " + maxStamina.ToString();
 
         uiManager.UpdateHearts();
+        
+    }
+
+    private void OnEnable()
+    {
+        SaveWithJson.OnDeletedFile += Load;
+    }
+
+    private void OnDisable()
+    {
+        SaveWithJson.OnDeletedFile -= Load;
     }
 
     void Save()
@@ -178,20 +188,6 @@ public class StaminaSystem : MonoBehaviour
         PlayerPrefs.SetString("nextStaminaTime", nextStaminaTime.ToString());
         PlayerPrefs.SetString("lastStaminaTime", lastStaminaTime.ToString());
     }
-
-    /*private IEnumerator Load()
-    {
-        yield return new WaitForSeconds(10f);
-        currentStamina = PlayerPrefs.GetInt("currentStamina");
-        PlayerData.Instance.SetHearts(currentStamina);
-
-        //currentStamina = PlayerData.Instance.GetHearts();
-        //PlayerPrefs.SetInt("currentStamina", currentStamina);
-        Debug.Log("currentStamina:");
-        Debug.Log(currentStamina);
-        UpdateStamina();
-        yield return null;
-    }*/ 
     
     private void Load()
     {
@@ -202,6 +198,7 @@ public class StaminaSystem : MonoBehaviour
         //PlayerPrefs.SetInt("currentStamina", currentStamina);
         Debug.Log("currentStamina:");
         Debug.Log(currentStamina);
+        uiManager.UpdateCheetos();
         UpdateStamina();
     }
 

@@ -13,6 +13,8 @@ public class SaveWithJson : MonoBehaviour
     [SerializeField] int _heartsDefault;
     [SerializeField] int _cheetosDefault;
 
+    public static event Action OnDeletedFile;
+
     void Awake()
     {
         if (Instance == null)
@@ -42,10 +44,10 @@ public class SaveWithJson : MonoBehaviour
             saveData.cheetos = _cheetosDefault;
             string json = JsonUtility.ToJson(saveData, true);
             File.WriteAllText(path, json);
-
             PlayerData.Instance.SetHearts(saveData.lives);
             PlayerData.Instance.SetCheetos(saveData.cheetos);
             PlayerPrefs.SetInt("currentStamina", saveData.lives);
+            OnDeletedFile?.Invoke();
         }
     }
 
