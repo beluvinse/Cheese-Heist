@@ -37,14 +37,14 @@ public class MenuManager : MonoBehaviour
         generalPanel.SetActive(true);
     }
 
-    public void StartGame()
+    public void StartGame(string level)
     {
         if (PlayerData.Instance.GetHearts() > 0)
         {
             PlayerData.Instance.AddHearts(-1);
             uiManager.UpdateHearts();
             SaveWithJson.Instance.SaveGame();
-            SceneManager.LoadScene("Level1");
+            SceneManager.LoadScene(level);
         }
     }
 

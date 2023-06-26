@@ -9226,6 +9226,7 @@ MonoBehaviour:
   trapSound: {fileID: 8300000, guid: e23a7ce3ae80d73439564149690c1b33, type: 3}
   buttonSound: {fileID: 8300000, guid: b9346c80b7b72a94899a57f69aeb45f0, type: 3}
   meowSound: {fileID: 8300000, guid: b72e00bdcc750be42b6bee0676764bfa, type: 3}
+  mouseSound: {fileID: 8300000, guid: d9f7ffa3c9b816c4ea7f078252d8dc28, type: 3}
 --- !u!1001 &1471657573
 PrefabInstance:
   m_ObjectHideFlags: 0

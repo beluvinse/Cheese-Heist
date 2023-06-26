@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
 
     AudioSource _audioSource;
 
-    [SerializeField] AudioClip chetoSound, trapSound, buttonSound, meowSound;
+    [SerializeField] AudioClip chetoSound, trapSound, buttonSound, meowSound, mouseSound;
 
     private void Awake()
     {
@@ -61,4 +61,9 @@ public class AudioManager : MonoBehaviour
         _audioSource.PlayOneShot(meowSound);
     }
 
+    public void PlayMouseSound()
+    {
+        _audioSource.PlayOneShot(mouseSound);
+
+    }
 }

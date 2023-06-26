@@ -22,6 +22,7 @@ public class MouseController : SteeringAgent
 
     public void OnDeath() { 
         OnLose?.Invoke();
+        AudioManager.Instance.PlayMouseSound();
         this.gameObject.SetActive(false);
 
     }
