@@ -45,6 +45,7 @@ public class SaveWithJson : MonoBehaviour
 
             PlayerData.Instance.SetHearts(saveData.lives);
             PlayerData.Instance.SetCheetos(saveData.cheetos);
+            PlayerPrefs.SetInt("currentStamina", saveData.lives);
         }
     }
 
@@ -52,7 +53,6 @@ public class SaveWithJson : MonoBehaviour
     public void SetHearts(int val)
     {
         saveData.lives = val;
-        //SaveGame();
     }
 
     public void SetCheetos(int val)
@@ -93,17 +93,10 @@ public class SaveWithJson : MonoBehaviour
         }
         else
             CreatePath();
-
     }
 
     public void Delete()
     {
-        //FileUtil.DeleteFileOrDirectory(path);
-        //saveData.cheetos = 0;
-        //PlayerData.Instance.SetCheetos(saveData.cheetos);
-        //saveData.lives = PlayerData.Instance.GetMaxHearts();
-        //PlayerData.Instance.SetHearts(saveData.lives);
-
         if (File.Exists(path))
         {
             File.Delete(path);
