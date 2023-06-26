@@ -30,7 +30,7 @@ public class PatrolState : State
 
         if (!_cat.mouse.IsRooted )
         {
-            if (mouseFound != null)
+            if (mouseFound != null && !_cat.mouse.IsInWallHole)
             {
                 fsm.ChangeState(States.Chase);
             }
