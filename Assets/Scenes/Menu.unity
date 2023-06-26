@@ -3043,6 +3043,7 @@ MonoBehaviour:
   _gameID: 5326468
   _adID: Rewarded_Android
   _showAdButton: {fileID: 475524386}
+  _uiManager: {fileID: 982188484}
 --- !u!114 &475524386
 MonoBehaviour:
   m_ObjectHideFlags: 0

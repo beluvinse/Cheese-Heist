@@ -42,6 +42,9 @@ public class SaveWithJson : MonoBehaviour
             saveData.cheetos = _cheetosDefault;
             string json = JsonUtility.ToJson(saveData, true);
             File.WriteAllText(path, json);
+
+            PlayerData.Instance.SetHearts(saveData.lives);
+            PlayerData.Instance.SetCheetos(saveData.cheetos);
         }
     }
 

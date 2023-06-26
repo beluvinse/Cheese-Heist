@@ -191,7 +191,9 @@ public class StaminaSystem : MonoBehaviour
         Debug.Log(currentStamina);
         UpdateStamina();
         yield return null;
-    }*/ private void Load()
+    }*/ 
+    
+    private void Load()
     {
         currentStamina = PlayerPrefs.GetInt("currentStamina");
         PlayerData.Instance.SetHearts(currentStamina);
