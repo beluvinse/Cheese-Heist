@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class TrapActiveState : State
 {
-    Cat _cat;
+    Cat_NavMesh _cat;
 
     public static event Action OnTrapActive;
 
 
-    public TrapActiveState(Cat c)
+    public TrapActiveState(Cat_NavMesh c)
     {
         _cat = c;
     }
@@ -29,8 +29,8 @@ public class TrapActiveState : State
 
     public override void Update()
     {
-        _cat.Move();
-        _cat.Chase(_cat.mouse.GetComponent<SteeringAgent>());
+        //_cat.Move();
+        //_cat.Chase(_cat.mouse.GetComponent<SteeringAgent>());
 
         var mouseFound = _cat.FOV.FieldOfViewCheck();
 

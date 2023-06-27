@@ -7130,7 +7130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1243285270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8000,6 +8000,8 @@ MonoBehaviour:
   heartText2: {fileID: 86987149}
   winCanvas: {fileID: 1077321230}
   loseCanvas: {fileID: 499801006}
+  tutorialCanvas: {fileID: 1243285269}
+  generalCanvas: {fileID: 788169216}
 --- !u!4 &1382340019
 Transform:
   m_ObjectHideFlags: 0
@@ -10331,7 +10333,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1382340018}
         m_TargetAssemblyTypeName: CanvasManager, Assembly-CSharp
-        m_MethodName: RestartLevel
+        m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
