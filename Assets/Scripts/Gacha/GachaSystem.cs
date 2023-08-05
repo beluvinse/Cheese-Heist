@@ -8,6 +8,8 @@ public class GachaSystem : MonoBehaviour
     [SerializeField] int pitySystem = 20;
     [SerializeField] int _gachaCost;
 
+    [SerializeField] UIManager _uiManager;
+
     float totalChance;
     int pullCount;
 
@@ -31,6 +33,7 @@ public class GachaSystem : MonoBehaviour
         {
             var item = GetItem();
             PlayerData.Instance.AddCheetos(-_gachaCost); //ACA PONER CUANTO CUESTA CADA CAJA
+            _uiManager.UpdateCheetos();
             Debug.Log("El gacha te obsequio: " + item.itemName + " de rareza " + item.rarity);
         }
     }

@@ -15,4 +15,4 @@ MonoBehaviour:
   itemName: Blue Heart
   itemCost: 
   itemImage: {fileID: 21300000, guid: c11239b0818d3f0449fd0dc569f8a244, type: 3}
-  rarity: 3
+  rarity: 4
