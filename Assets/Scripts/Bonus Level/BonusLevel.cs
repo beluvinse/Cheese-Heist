@@ -10,11 +10,13 @@ public class BonusLevel : MonoBehaviour
     [SerializeField] float _cuts;
     [SerializeField] GameObject _trail;
     [SerializeField] GameObject explosion;
+    [SerializeField] GameObject Panel;
     bool isTimerRunning;
     public float timer;
 
     private void Update()
     {
+        
         if(timer < _timer)
         {
             timer += Time.deltaTime;
@@ -60,7 +62,7 @@ public class BonusLevel : MonoBehaviour
                 {
                     _cuts++;
                     Debug.Log(_cuts);
-                    transform.localScale += new Vector3(0.05f, 0.05f, 0.05f);
+                    transform.localScale += new Vector3(0.1f, 0.05f, 0.1f);
                 }
             }
         }
