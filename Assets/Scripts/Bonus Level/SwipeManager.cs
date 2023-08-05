@@ -5,11 +5,12 @@ using System;
 
 public class SwipeManager : MonoBehaviour
 {
-    public static SwipeManager instance { get; private set;}
+    public static SwipeManager instance { get; private set; }
 
     SwipeData data = new SwipeData();
     [SerializeField] int maxPointsCapacity = 10; // 1 punto cada 0.1f, 10 puntos en 1 segundo
     [SerializeField] float refreshTimer = 0.1f, timer;
+
 
     public Action<SwipeData> OnSwipe;
 
@@ -35,6 +36,7 @@ public class SwipeManager : MonoBehaviour
         if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
         {
             data.isSwipe = false;
+
             data.points.Clear();
             timer = 0;
             return;
@@ -42,11 +44,11 @@ public class SwipeManager : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        if(timer >= refreshTimer)
+        if (timer >= refreshTimer)
         {
             data.points.Add(touch.position);
 
-            if(maxPointsCapacity < data.points.Count)
+            if (maxPointsCapacity < data.points.Count)
             {
                 data.points.RemoveAt(0);
             }
@@ -54,4 +56,7 @@ public class SwipeManager : MonoBehaviour
             OnSwipe(data);
         }
     }
+
+
+
 }

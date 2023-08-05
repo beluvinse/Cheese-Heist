@@ -3127,7 +3127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &788169217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11018,6 +11018,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626106592543108023, guid: 088af1e6a476aef4a9b8a4481e934951,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3626106592561747585, guid: 088af1e6a476aef4a9b8a4481e934951,
         type: 3}
