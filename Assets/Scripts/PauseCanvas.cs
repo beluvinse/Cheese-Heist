@@ -8,6 +8,7 @@ public class PauseCanvas : MonoBehaviour
 {
     public GameObject pauseMenuUI;
     public GameObject pauseButton;
+    public GameObject generalCanvas;
 
     public TMP_Text cheetosText;
 
@@ -27,6 +28,7 @@ public class PauseCanvas : MonoBehaviour
     {
         pauseMenuUI.SetActive(false);
         pauseButton.SetActive(true);
+        generalCanvas.SetActive(true);
         Time.timeScale = 1f;
     }
 
@@ -34,6 +36,7 @@ public class PauseCanvas : MonoBehaviour
     {
         pauseMenuUI.SetActive(true);
         pauseButton.SetActive(false);
+        generalCanvas.SetActive(false);
         Time.timeScale = 0f;
     }
 

@@ -1204,6 +1204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1836260525}
   pauseButton: {fileID: 461559019}
+  generalCanvas: {fileID: 1832840367}
   cheetosText: {fileID: 1714975649}
 --- !u!114 &119373033
 MonoBehaviour:
@@ -1223,7 +1224,7 @@ MonoBehaviour:
   winCanvas: {fileID: 866231112}
   loseCanvas: {fileID: 1076764182}
   tutorialCanvas: {fileID: 0}
-  generalCanvas: {fileID: 0}
+  generalCanvas: {fileID: 1832840367}
 --- !u!4 &119373034
 Transform:
   m_ObjectHideFlags: 0

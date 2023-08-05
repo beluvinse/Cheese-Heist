@@ -92,12 +92,14 @@ public class CanvasManager : MonoBehaviour
     public void WinCanvas()
     {
         winCanvas.SetActive(true);
+        generalCanvas.SetActive(false);
         Time.timeScale = 0f;
     }
 
     public void LoseCanvas()
     {
         loseCanvas.SetActive(true);
+        generalCanvas.SetActive(false);
         Time.timeScale = 0f;
     }
 
