@@ -32,4 +32,6 @@ public class InventoryUI : MonoBehaviour
         potionText.text = "" + _potion;
         mouseText.text = "" + _mouse;
     }
+    
+
 }

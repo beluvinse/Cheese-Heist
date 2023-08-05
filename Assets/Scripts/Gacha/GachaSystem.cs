@@ -6,11 +6,11 @@ public class GachaSystem : MonoBehaviour
 {
     [SerializeField] GachaPool[] myPool = new GachaPool[0];
     [SerializeField] int pitySystem = 20;
+    [SerializeField] int _gachaCost;
 
     float totalChance;
     int pullCount;
 
-    // Start is called before the first frame update
     void Start()
     {
         totalChance = 0;
@@ -25,13 +25,12 @@ public class GachaSystem : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     public void PullGacha(int pullNumber)
     {
         for (int i = 0; i < pullNumber; i++)
         {
             var item = GetItem();
-
+            PlayerData.Instance.AddCheetos(-_gachaCost); //ACA PONER CUANTO CUESTA CADA CAJA
             Debug.Log("El gacha te obsequio: " + item.itemName + " de rareza " + item.rarity);
         }
     }

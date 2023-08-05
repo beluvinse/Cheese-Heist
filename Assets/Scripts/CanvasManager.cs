@@ -54,6 +54,11 @@ public class CanvasManager : MonoBehaviour
        
     }
     
+    public void Revive()
+    {
+
+    }
+
     
     public void NextLevel()
     {
