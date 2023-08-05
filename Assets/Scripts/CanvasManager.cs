@@ -23,7 +23,7 @@ public class CanvasManager : MonoBehaviour
 
         if (PlayerPrefs.GetInt("tutorial") == 1)
         {
-            tutorialCanvas.SetActive(true);
+            tutorialCanvas.SetActive(true); //me sale error aca en el segundo nivel pq no hay tutorial
             Time.timeScale = 0f;
         }
         else
@@ -63,9 +63,11 @@ public class CanvasManager : MonoBehaviour
             PlayerData.Instance.AddHearts(-1);
             PlayerPrefs.SetInt("currentStamina", PlayerData.Instance.GetHearts());
             SaveWithJson.Instance.SaveGame();
-            SceneManager.LoadScene("Level2");
+            //SceneManager.LoadScene("Level2"); //habria que cambiar esto para que busque la escena siguiente
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-       
+
+
     }
 
     public void ShowHearts()
