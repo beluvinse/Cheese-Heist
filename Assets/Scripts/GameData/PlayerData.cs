@@ -9,6 +9,9 @@ public class PlayerData : MonoBehaviour
     [SerializeField] int _hearts;
     [SerializeField] int _maxHearts = 100;
     [SerializeField] int _cheetos;
+    [SerializeField] int _specialHeart;
+    [SerializeField] int _decoyMouse;
+    [SerializeField] int _potion;
 
     public int GetHearts()
     {
@@ -28,13 +31,11 @@ public class PlayerData : MonoBehaviour
     public void AddHearts(int val)
     {
         _hearts = _hearts + val;
-        //SaveWithJson.Instance.SetHearts(_hearts); //no se si deberia hacerlo aca pero bueno
     }
 
     public void SetCheetos(int val)
     {
         _cheetos = val;
-        //SaveWithJson.Instance.SetCheetos(_cheetos);
     }
 
     public void AddCheetos(int val)
@@ -47,6 +48,36 @@ public class PlayerData : MonoBehaviour
         return _cheetos;
     }
 
+    public int GetPotion()
+    {
+        return _potion;
+    }
+
+    public int GetMouse()
+    {
+        return _decoyMouse;
+    }
+
+    public int GetBlueHearts()
+    {
+        return _specialHeart;
+    }
+
+    public void AddBlueHeart(int val)
+    {
+        _specialHeart += val;
+    }
+
+    public void AddPotion(int val)
+    {
+        _potion += val;
+    }
+
+    public void AddMouse(int val)
+    {
+        _decoyMouse += val;
+    }
+
     private void Awake()
     {
         if (Instance == null)
@@ -55,10 +86,7 @@ public class PlayerData : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else
-        {
             Destroy(gameObject);
-        }
-
     }
 
     private void Start()

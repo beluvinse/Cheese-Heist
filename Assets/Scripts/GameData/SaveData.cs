@@ -8,4 +8,7 @@ public class SaveData
 {
     public int lives;
     public int cheetos;
+    public int specialHeart;
+    public int decoyMouse;
+    public int potion;
 }
