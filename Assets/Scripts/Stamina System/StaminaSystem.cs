@@ -209,6 +209,7 @@ public class StaminaSystem : MonoBehaviour
     private void OnApplicationQuit()
     {
         Save();
+
     }
 
     private void OnApplicationPause(bool pause)

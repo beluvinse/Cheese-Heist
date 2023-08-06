@@ -17,8 +17,7 @@ public class NotificationManager : MonoBehaviour
 
     void Start()
     {
-        AndroidNotificationCenter.CancelAllDisplayedNotifications();
-        AndroidNotificationCenter.CancelAllScheduledNotifications();
+        AndroidNotificationCenter.CancelAllNotifications();
 
         notifChannel = new AndroidNotificationChannel()
         {
@@ -29,8 +28,6 @@ public class NotificationManager : MonoBehaviour
         };
 
         AndroidNotificationCenter.RegisterNotificationChannel(notifChannel);
-
-        DisplayNotification(" Cheese Heist misses you!", "Hey there, sneaky cheese thief! The mice in Cheese Heist miss your expert heisting skills! ", DateTime.Now.AddSeconds(30));
     }
 
     public int DisplayNotification(string title, string text, DateTime fireTime)
@@ -48,5 +45,10 @@ public class NotificationManager : MonoBehaviour
     public void CancelNotification(int id)
     {
         AndroidNotificationCenter.CancelScheduledNotification(id);
+    }
+
+    private void OnApplicationQuit()
+    {
+        DisplayNotification("Cheese Heist misses you!", "Hey there, sneaky cheese thief! The mice in Cheese Heist miss your expert heisting skills! ", DateTime.Now.AddSeconds(30));
     }
 }
