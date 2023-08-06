@@ -30,7 +30,7 @@ public class NotificationManager : MonoBehaviour
 
         AndroidNotificationCenter.RegisterNotificationChannel(notifChannel);
 
-        //DisplayNotification("Te extraño", "Hace tiempo que no te veo, necesito que juegues conmigo", DateTime.Now.AddSeconds(30));
+        DisplayNotification(" Cheese Heist misses you!", "Hey there, sneaky cheese thief! The mice in Cheese Heist miss your expert heisting skills! ", DateTime.Now.AddSeconds(30));
     }
 
     public int DisplayNotification(string title, string text, DateTime fireTime)

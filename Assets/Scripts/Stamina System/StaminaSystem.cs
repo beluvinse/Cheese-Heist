@@ -20,10 +20,9 @@ public class StaminaSystem : MonoBehaviour
     DateTime nextStaminaTime;
     DateTime lastStaminaTime;
 
-    [SerializeField] string notifTitle = "Full Stamina";
-    [SerializeField] string notifText = "Tenes la stamina al borde de colapsar, volve al juego";
-
-    int id;
+    //[SerializeField] string notifTitle = "Full Stamina";
+    //[SerializeField] string notifText = "Tenes la stamina al borde de colapsar, volve al juego";
+    //int id;
 
     TimeSpan timer;
 
@@ -50,8 +49,8 @@ public class StaminaSystem : MonoBehaviour
         if (currentStamina < maxStamina)
         {
             timer = nextStaminaTime - DateTime.Now;
-            id = NotificationManager.Instance.DisplayNotification(notifTitle, notifText,
-                AddDuration(DateTime.Now, ((maxStamina - (currentStamina) + 1) * timeToRecharge) + 1 + (float)timer.TotalSeconds));
+           /* id = NotificationManager.Instance.DisplayNotification(notifTitle, notifText,
+                AddDuration(DateTime.Now, ((maxStamina - (currentStamina) + 1) * timeToRecharge) + 1 + (float)timer.TotalSeconds));*/
         }
     }
 
@@ -108,7 +107,7 @@ public class StaminaSystem : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        NotificationManager.Instance.CancelNotification(id);
+        //NotificationManager.Instance.CancelNotification(id); //no anda bien
         recharging = false;
     }
 
@@ -124,9 +123,9 @@ public class StaminaSystem : MonoBehaviour
             currentStamina -= staminaToUse;
             UpdateStamina();
 
-            NotificationManager.Instance.CancelNotification(id);
-            id = NotificationManager.Instance.DisplayNotification(notifTitle, notifText,
-                AddDuration(DateTime.Now, ((maxStamina - (currentStamina) + 1) * timeToRecharge) + 1 + (float)timer.TotalSeconds));
+           // NotificationManager.Instance.CancelNotification(id);
+            //id = NotificationManager.Instance.DisplayNotification(notifTitle, notifText,
+                //AddDuration(DateTime.Now, ((maxStamina - (currentStamina) + 1) * timeToRecharge) + 1 + (float)timer.TotalSeconds));
 
             if (!recharging)
             {
