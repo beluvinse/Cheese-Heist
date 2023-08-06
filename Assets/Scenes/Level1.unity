@@ -8534,7 +8534,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh208600
+  m_Name: pb_Mesh337512
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8792,6 +8792,7 @@ MonoBehaviour:
   potionBtn: {fileID: 1843230953}
   mouseBtn: {fileID: 1757557829}
   reviveBtn: {fileID: 1133020833}
+  _mouseCon: {fileID: 1888298870}
 --- !u!4 &1420567017 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1529711533119422506, guid: c1e8531d3c65e404d9865576c33c7dae,
@@ -11949,11 +11950,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 288951097}
     m_Modifications:
+    - target: {fileID: 1973124566412916086, guid: 4f9a96c7203d4fc498ac317884c1f552,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4736284765637330877, guid: 4f9a96c7203d4fc498ac317884c1f552,
         type: 3}
       propertyPath: controller
       value: 
       objectReference: {fileID: 334765150}
+    - target: {fileID: 4736284765637330877, guid: 4f9a96c7203d4fc498ac317884c1f552,
+        type: 3}
+      propertyPath: _speedBoostMulti
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5057560643676479566, guid: 4f9a96c7203d4fc498ac317884c1f552,
         type: 3}
       propertyPath: m_RootOrder

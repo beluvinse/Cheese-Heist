@@ -6,13 +6,25 @@ using UnityEngine;
 public class MouseController : SteeringAgent
 {
     [SerializeField] Controller controller;
-    [SerializeField] float speed;
+    [SerializeField] float _speed;
 
     [SerializeField] bool _isRooted;
     [SerializeField] bool _isInWallHole;
 
+    [Header("SpeedBoost")]
+    [SerializeField] GameObject _particles;
+    [SerializeField] float _speedBoostMulti;
+    [SerializeField] float _speedBoostDuration;
+
+    private SpeedBoost _speedBoost;
+
     public bool IsRooted { get { return _isRooted; } }
     public bool IsInWallHole { get { return _isInWallHole; } }
+    public float speed { 
+        get { return _speed; }
+        set { _speed = value; } 
+    }
+
 
     public Animator myAnim;
 
@@ -36,7 +48,7 @@ public class MouseController : SteeringAgent
             //transform.position += controller.GetMovementInput() * speed * Time.deltaTime;
             if (input != Vector3.zero)
             {
-                AddForce(controller.GetMovementInput() * speed);
+                AddForce(controller.GetMovementInput() * _speed);
                 Move();
                 myAnim.SetBool("isMoving", true);
             }
@@ -58,6 +70,7 @@ public class MouseController : SteeringAgent
     private void Start()
     {
         _renderer = GetComponentInChildren<SkinnedMeshRenderer>();
+        _speedBoost = new SpeedBoost(_speedBoostMulti, _speedBoostDuration, _particles, this);
     }
 
     public void EnterWallHole(Transform inPos)
@@ -87,5 +100,11 @@ public class MouseController : SteeringAgent
         _isRooted = true;
         yield return new WaitForSeconds(time);
         _isRooted = false;
+    }
+
+
+    public void SpeedBoost()
+    {
+        StartCoroutine(_speedBoost.Boost());
     }
 }

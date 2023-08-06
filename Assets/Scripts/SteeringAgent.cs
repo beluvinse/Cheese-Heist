@@ -57,4 +57,9 @@ public class SteeringAgent : MonoBehaviour
     {
         return -Seek(target);
     }
+
+    public void ChangeMaxSpeed(float val)
+    {
+        _maxSpeed = val;
+    }
 }

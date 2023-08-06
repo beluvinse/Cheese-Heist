@@ -22,6 +22,8 @@ public class InventoryCanvas : MonoBehaviour
     int _potion;
     int _mouse;
 
+    [SerializeField] MouseController _mouseCon;
+
     private void UpdateUI()
     {
         _hearts = PlayerData.Instance.GetHearts();
@@ -59,7 +61,7 @@ public class InventoryCanvas : MonoBehaviour
 
     public void PotionButton()
     {
-
+        _mouseCon.SpeedBoost();
         PlayerData.Instance.AddPotion(-1);
         UpdateUI();
 
