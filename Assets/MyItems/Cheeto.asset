@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826411616e9df884bb09dd128ed50fb2, type: 3}
   m_Name: Cheeto
   m_EditorClassIdentifier: 
-  itemName: Cheeto
-  itemCost: 
+  itemName: Cheetos
+  itemCost: 30
   itemImage: {fileID: 21300000, guid: 6c27d181575b91941a3ae9692d4cc5f7, type: 3}
   rarity: 0

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: MouseDecoy
   m_EditorClassIdentifier: 
   itemName: Mouse Decoy
-  itemCost: 
+  itemCost: 1
   itemImage: {fileID: -170296645, guid: 2670a5373a7e15d4cbb27c2df3f5a941, type: 3}
-  rarity: 3
+  rarity: 2

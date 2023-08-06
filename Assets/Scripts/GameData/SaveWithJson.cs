@@ -67,6 +67,24 @@ public class SaveWithJson : MonoBehaviour
         LoadGame();
         return saveData.lives;
     }
+    
+    public int GetPotion()
+    {
+        LoadGame();
+        return saveData.potion;
+    }
+
+    public int GetMouse()
+    {
+        LoadGame();
+        return saveData.decoyMouse;
+    }
+    
+    public int GetBlueHearts()
+    {
+        LoadGame();
+        return saveData.specialHeart;
+    }
 
     public int GetCheetos()
     {
@@ -78,6 +96,9 @@ public class SaveWithJson : MonoBehaviour
     {
         saveData.lives = PlayerData.Instance.GetHearts();
         saveData.cheetos = PlayerData.Instance.GetCheetos();
+        saveData.potion = PlayerData.Instance.GetPotion();
+        saveData.decoyMouse = PlayerData.Instance.GetMouse();
+        saveData.specialHeart = PlayerData.Instance.GetBlueHearts();
         string json = JsonUtility.ToJson(saveData, true);
         File.WriteAllText(path, json);
         Debug.Log(json);

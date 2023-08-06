@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826411616e9df884bb09dd128ed50fb2, type: 3}
   m_Name: Heart
   m_EditorClassIdentifier: 
-  itemName: Heart
-  itemCost: 
+  itemName: Hearts
+  itemCost: 10
   itemImage: {fileID: 21300000, guid: 78e6d695a9412c94d88c3f6a3a04190d, type: 3}
-  rarity: 0
+  rarity: 1

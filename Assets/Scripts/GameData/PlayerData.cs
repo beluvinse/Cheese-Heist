@@ -91,13 +91,11 @@ public class PlayerData : MonoBehaviour
 
     private void Start()
     {
-        //_hearts = SaveWithJson.Instance.GetHearts();
-        //Debug.LogWarning(_hearts);
-
-
-
+        _hearts = SaveWithJson.Instance.GetHearts();
         _cheetos = SaveWithJson.Instance.GetCheetos();
-        //Debug.LogWarning(_cheetos);
+        _potion = SaveWithJson.Instance.GetPotion();
+        _decoyMouse = SaveWithJson.Instance.GetMouse();
+        _specialHeart = SaveWithJson.Instance.GetBlueHearts();
     }
 
 }
