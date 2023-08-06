@@ -42,10 +42,16 @@ public class SaveWithJson : MonoBehaviour
             Debug.Log("path no existe, se crea");
             saveData.lives = _heartsDefault;
             saveData.cheetos = _cheetosDefault;
+            saveData.specialHeart = 0;
+            saveData.potion = 0;
+            saveData.decoyMouse = 0;
             string json = JsonUtility.ToJson(saveData, true);
             File.WriteAllText(path, json);
             PlayerData.Instance.SetHearts(saveData.lives);
             PlayerData.Instance.SetCheetos(saveData.cheetos);
+            PlayerData.Instance.SetBlueHearts(saveData.specialHeart);
+            PlayerData.Instance.SetPotion(saveData.potion);
+            PlayerData.Instance.SetMouse(saveData.decoyMouse);
             PlayerPrefs.SetInt("currentStamina", saveData.lives);
             OnDeletedFile?.Invoke();
         }

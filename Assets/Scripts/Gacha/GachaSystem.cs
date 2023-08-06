@@ -49,7 +49,7 @@ public class GachaSystem : MonoBehaviour
             var item = GetItem();
             PlayerData.Instance.AddCheetos(-_gachaCost);
             _uiManager.UpdateCheetos();
-            var n = Random.Range(10, 100);
+            var n = Random.Range(10, 90);
             switch (item.itemName)
             {
                 case "Cheetos":

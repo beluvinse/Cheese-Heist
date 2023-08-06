@@ -38,6 +38,21 @@ public class PlayerData : MonoBehaviour
         _cheetos = val;
     }
 
+    public void SetBlueHearts(int val)
+    {
+        _specialHeart = val;
+    }
+    
+    public void SetPotion(int val)
+    {
+        _potion = val;
+    }
+    
+    public void SetMouse(int val)
+    {
+        _decoyMouse = val;
+    }
+
     public void AddCheetos(int val)
     {
         _cheetos += val;

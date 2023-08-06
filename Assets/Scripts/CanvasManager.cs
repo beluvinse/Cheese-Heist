@@ -19,18 +19,20 @@ public class CanvasManager : MonoBehaviour
     {
         ShowHearts();
 
-        Debug.Log(PlayerPrefs.GetInt("tutorial"));
+        if (tutorialCanvas != null)
+        {
+            if (PlayerPrefs.GetInt("tutorial") == 1)
+            {
+                tutorialCanvas.SetActive(true);
+                Time.timeScale = 0f;
+            }
+            else
+            {
+                generalCanvas.SetActive(true);
+                Time.timeScale = 1f;
+            }
+        }
 
-        if (PlayerPrefs.GetInt("tutorial") == 1)
-        {
-            tutorialCanvas.SetActive(true); //me sale error aca en el segundo nivel pq no hay tutorial
-            Time.timeScale = 0f;
-        }
-        else
-        {
-            generalCanvas.SetActive(true);
-            Time.timeScale = 1f;
-        }
     }
 
     private void Update()
@@ -51,15 +53,14 @@ public class CanvasManager : MonoBehaviour
             SaveWithJson.Instance.SaveGame();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-       
+
     }
-    
+
     public void Revive()
     {
 
     }
 
-    
     public void NextLevel()
     {
         if (PlayerData.Instance.GetHearts() > 0)
@@ -71,8 +72,6 @@ public class CanvasManager : MonoBehaviour
             //SceneManager.LoadScene("Level2"); //habria que cambiar esto para que busque la escena siguiente
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-
-
     }
 
     public void ShowHearts()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Store : MonoBehaviour
 {
@@ -8,6 +9,11 @@ public class Store : MonoBehaviour
     int _hearts;
     int _maxHearts;
     public UIManager uiManager;
+
+    [SerializeField] Button _1heartBtn;
+    [SerializeField] Button _5heartBtn;
+    [SerializeField] Button _20heartBtn;
+    [SerializeField] Button _chestBtn;
 
     private void GetData()
     {    
@@ -20,14 +26,32 @@ public class Store : MonoBehaviour
         _maxHearts = PlayerData.Instance.GetMaxHearts();
     }
 
+    private void Update()
+    {
+        var cheetos = PlayerData.Instance.GetCheetos();
+        
+        if(cheetos < 10)
+            _1heartBtn.interactable = false;
+
+        if (cheetos < 50)
+        {
+            _5heartBtn.interactable = false;
+            _chestBtn.interactable = false;
+        }
+
+        if (cheetos < 80)
+            _20heartBtn.interactable = false;
+
+    }
+
     public void Buy1Heart()
     {
         GetData();
 
-        if(_hearts < _maxHearts && _cheetos >= 1)
+        if(_hearts < _maxHearts && _cheetos >= 10)
         {
             PlayerData.Instance.AddHearts(1);
-            PlayerData.Instance.SetCheetos(_cheetos - 1);
+            PlayerData.Instance.SetCheetos(_cheetos - 10);
             uiManager.UpdateCheetos();
             uiManager.UpdateHearts();
         }
@@ -38,10 +62,10 @@ public class Store : MonoBehaviour
     {
         GetData();
 
-        if (_hearts < _maxHearts && _cheetos >= 5)
+        if (_hearts < _maxHearts && _cheetos >= 50)
         {
             PlayerData.Instance.AddHearts(5);
-            PlayerData.Instance.SetCheetos(_cheetos - 5);
+            PlayerData.Instance.SetCheetos(_cheetos - 50);
             uiManager.UpdateCheetos();
             uiManager.UpdateHearts();
         }
@@ -51,10 +75,10 @@ public class Store : MonoBehaviour
     {
         GetData();
 
-        if (_hearts < _maxHearts && _cheetos >= 15)
+        if (_hearts < _maxHearts && _cheetos >= 80)
         {
             PlayerData.Instance.AddHearts(20);
-            PlayerData.Instance.SetCheetos(_cheetos - 15);
+            PlayerData.Instance.SetCheetos(_cheetos - 80);
             uiManager.UpdateCheetos();
             uiManager.UpdateHearts();
         }
