@@ -2651,6 +2651,7 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 1590205919}
   heartText: {fileID: 352852151}
   heartText2: {fileID: 163608911}
+  cheetosText: {fileID: 0}
   winCanvas: {fileID: 27633954}
   loseCanvas: {fileID: 1338744687}
   tutorialCanvas: {fileID: 0}
