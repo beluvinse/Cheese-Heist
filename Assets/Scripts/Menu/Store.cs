@@ -48,7 +48,8 @@ public class Store : MonoBehaviour
     {
         GetData();
 
-        if(_hearts < _maxHearts && _cheetos >= 10)
+        //if(_hearts < _maxHearts && _cheetos >= 10)
+        if(_cheetos >= 10)
         {
             PlayerData.Instance.AddHearts(1);
             PlayerData.Instance.SetCheetos(_cheetos - 10);
@@ -62,7 +63,8 @@ public class Store : MonoBehaviour
     {
         GetData();
 
-        if (_hearts < _maxHearts && _cheetos >= 50)
+        //if (_hearts < _maxHearts && _cheetos >= 50)
+        if (_cheetos >= 50)
         {
             PlayerData.Instance.AddHearts(5);
             PlayerData.Instance.SetCheetos(_cheetos - 50);
@@ -75,7 +77,8 @@ public class Store : MonoBehaviour
     {
         GetData();
 
-        if (_hearts < _maxHearts && _cheetos >= 80)
+        //if (_hearts < _maxHearts && _cheetos >= 80)
+        if (_cheetos >= 80)
         {
             PlayerData.Instance.AddHearts(20);
             PlayerData.Instance.SetCheetos(_cheetos - 80);

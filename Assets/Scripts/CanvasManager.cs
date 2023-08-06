@@ -9,14 +9,19 @@ public class CanvasManager : MonoBehaviour
     public GameObject pauseMenuUI;
     public TMP_Text heartText;
     public TMP_Text heartText2;
+    public TMP_Text cheetosText;
 
     public GameObject winCanvas;
     public GameObject loseCanvas;
     public GameObject tutorialCanvas;
     public GameObject generalCanvas;
 
+
+    int _initialCheetos;
+
     private void Start()
     {
+        _initialCheetos = PlayerData.Instance.GetCheetos();
         ShowHearts();
 
         if (tutorialCanvas != null)
@@ -98,6 +103,8 @@ public class CanvasManager : MonoBehaviour
         winCanvas.SetActive(true);
         generalCanvas.SetActive(false);
         Time.timeScale = 0f;
+       // var cheetos = PlayerData.Instance.GetCheetos() - _initialCheetos;
+       // cheetosText.text = cheetos.ToString();
     }
 
     public void LoseCanvas()

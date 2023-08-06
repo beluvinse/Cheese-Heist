@@ -35,23 +35,21 @@ public class InventoryCanvas : MonoBehaviour
         blueHeartsText.text = "" + _blueHearts;
         potionText.text = "" + _potion;
         mouseText.text = "" + _mouse;
+
+
+        if (_blueHearts <= 0)
+            reviveBtn.interactable = false;
+
+        if (_potion <= 0)
+            potionBtn.interactable = false;
+
+        if (_mouse <= 0)
+            mouseBtn.interactable = false;
     }
 
     private void Start()
     {
-        if (PlayerData.Instance.GetBlueHearts() <= 0)
-            reviveBtn.interactable = false;
-
-        if (PlayerData.Instance.GetPotion() <= 0)
-            potionBtn.interactable = false;
-        
-        if (PlayerData.Instance.GetMouse() <= 0)
-            mouseBtn.interactable = false;
-
-        Debug.Log("potion: " + PlayerData.Instance.GetPotion());
-        Debug.Log("mouse: " + PlayerData.Instance.GetMouse());
-
-
+        UpdateUI();
     }
 
     private void Update()
@@ -61,35 +59,26 @@ public class InventoryCanvas : MonoBehaviour
 
     public void PotionButton()
     {
-        if (PlayerData.Instance.GetPotion() > 0) //no hace falta en realidad poner esto
-        {
-            PlayerData.Instance.AddPotion(-1);
-            UpdateUI();
-        
-        
-        
+
+        PlayerData.Instance.AddPotion(-1);
+        UpdateUI();
+
         //te sube la velocidad (por un tiempo?)
         //desactivar el botton para que no se pueda tomar otra pocion hasta que termine el efecto
-        
-        }
-        
+
+
     }
 
     public void MouseButton()
     {
-        if (PlayerData.Instance.GetMouse() > 0)
-        {
-            PlayerData.Instance.AddMouse(-1);
-            UpdateUI();
-        
-        
-         //instancia mouse decoy
-        
-        }
-       
+        PlayerData.Instance.AddMouse(-1);
+        UpdateUI();
+
+
+        //instancia mouse decoy
     }
 
 
-    
+
 
 }

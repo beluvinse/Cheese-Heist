@@ -48,7 +48,6 @@ public class GachaSystem : MonoBehaviour
         {
             var item = GetItem();
             PlayerData.Instance.AddCheetos(-_gachaCost);
-            _uiManager.UpdateCheetos();
             var n = Random.Range(10, 90);
             switch (item.itemName)
             {
@@ -72,6 +71,8 @@ public class GachaSystem : MonoBehaviour
             _winPanel.SetActive(true);
             Debug.Log("El gacha te obsequio: " + item.itemName + " de rareza " + item.rarity);
             SaveWithJson.Instance.SaveGame();
+            _uiManager.UpdateCheetos();
+
         }
     }
 
