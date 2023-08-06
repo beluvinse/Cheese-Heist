@@ -46,9 +46,12 @@ public class FireHazard : MonoBehaviour
 
     IEnumerator Activate()
     {
+        var collider = GetComponent<BoxCollider>();
         fuegoo.gameObject.SetActive(true);
+        collider.enabled = true;
         isTurnedOn = true;
         yield return new WaitForSeconds(_durationTime);
+        collider.enabled = false;
         fuegoo.gameObject.SetActive(false);
         isTurnedOn = false;
 
