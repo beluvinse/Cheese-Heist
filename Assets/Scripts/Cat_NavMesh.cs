@@ -88,8 +88,9 @@ public class Cat_NavMesh : MonoBehaviour
         }
     }
 
-    public void ChaseMouse(){
-        _agent.SetDestination(mouse.transform.position);
+    public void ChaseMouse(Transform target){
+        if(Vector3.Distance(transform.position, target.position) > 1f)
+            _agent.SetDestination(target.position);
     }
 
     public void BuffSpeed(float val){_speed *= val;}
@@ -101,7 +102,7 @@ public class Cat_NavMesh : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, mouse.transform.position) < _destroyRadius)
         {
-            Debug.Log("morfadium");
+            Debug.Log("morfa2");
             mouse.OnDeath();
         }
     }

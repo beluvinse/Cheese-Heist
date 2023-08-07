@@ -73,6 +73,7 @@ public class InventoryCanvas : MonoBehaviour
 
     public void MouseButton()
     {
+        _mouseCon.SpawnDecoy();
         PlayerData.Instance.AddMouse(-1);
         UpdateUI();
 

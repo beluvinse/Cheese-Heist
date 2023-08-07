@@ -22,7 +22,7 @@ public class FieldOfView
         _angle = angle;
     }
 
-    public MouseController FieldOfViewCheck()
+    public Transform FieldOfViewCheck()
     {
         Collider[] RangeChecks = Physics.OverlapSphere(_agent.transform.position, _range, _targetMask);
         if (RangeChecks.Length != 0)
@@ -38,7 +38,7 @@ public class FieldOfView
                 if (!Physics.Raycast(_agent.transform.position, directionToTarget, distanceToTarget, _obstructionMask))
                 {
                     seesEnemy = true;
-                    return Target.GetComponent<MouseController>();
+                    return Target;
                 }
 
                 else

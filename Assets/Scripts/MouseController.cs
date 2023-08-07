@@ -16,7 +16,13 @@ public class MouseController : SteeringAgent
     [SerializeField] float _speedBoostMulti;
     [SerializeField] float _speedBoostDuration;
 
+    [Header("Decoy")]
+    [SerializeField] GameObject _decoy;
+    [SerializeField] float _decoyDuration;
+    [SerializeField] Transform _decoySpawn;
+
     private SpeedBoost _speedBoost;
+    private DecoyMouse _decoyMouse;
 
     public bool IsRooted { get { return _isRooted; } }
     public bool IsInWallHole { get { return _isInWallHole; } }
@@ -71,6 +77,7 @@ public class MouseController : SteeringAgent
     {
         _renderer = GetComponentInChildren<SkinnedMeshRenderer>();
         _speedBoost = new SpeedBoost(_speedBoostMulti, _speedBoostDuration, _particles, this);
+        _decoyMouse = new DecoyMouse(_decoyDuration, _decoy, this, _decoySpawn);
     }
 
     public void EnterWallHole(Transform inPos)
@@ -106,5 +113,10 @@ public class MouseController : SteeringAgent
     public void SpeedBoost()
     {
         StartCoroutine(_speedBoost.Boost());
+    }
+
+    public void SpawnDecoy()
+    {
+        StartCoroutine(_decoyMouse.PlantDecoy());
     }
 }

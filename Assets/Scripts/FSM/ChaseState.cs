@@ -36,8 +36,15 @@ public class ChaseState : State
         }
         else
         {
-            _cat.ChaseMouse();//pasar mouse por aca?
-            _cat.CheckDestroyDistance();
+            if (mouseFound.CompareTag("Decoy")){
+                _cat.ChaseMouse(mouseFound);//pasar mouse por aca?
+            }
+            else
+            {
+                _cat.CheckDestroyDistance();
+            }
+
+            
         }
     }
 
