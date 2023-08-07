@@ -15,6 +15,7 @@ public class CanvasManager : MonoBehaviour
     public GameObject loseCanvas;
     public GameObject tutorialCanvas;
     public GameObject generalCanvas;
+    public GameObject bonusLevel;
 
 
     int _initialCheetos;
