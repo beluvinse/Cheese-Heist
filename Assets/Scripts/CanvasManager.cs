@@ -17,12 +17,10 @@ public class CanvasManager : MonoBehaviour
     public GameObject generalCanvas;
     public GameObject bonusLevel;
 
-
-    int _initialCheetos;
+    [SerializeField] MouseController _mouse;
 
     private void Start()
     {
-        _initialCheetos = PlayerData.Instance.GetCheetos();
         ShowHearts();
 
         if (tutorialCanvas != null)
@@ -64,7 +62,11 @@ public class CanvasManager : MonoBehaviour
 
     public void Revive()
     {
-
+        PlayerData.Instance.AddBlueHeart(-1);
+        Time.timeScale = 1f;
+        loseCanvas.SetActive(false);
+        generalCanvas.SetActive(true);
+        StartCoroutine(_mouse.Revive());
     }
 
     public void NextLevel()
@@ -75,7 +77,6 @@ public class CanvasManager : MonoBehaviour
             PlayerData.Instance.AddHearts(-1);
             PlayerPrefs.SetInt("currentStamina", PlayerData.Instance.GetHearts());
             SaveWithJson.Instance.SaveGame();
-            //SceneManager.LoadScene("Level2"); //habria que cambiar esto para que busque la escena siguiente
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }

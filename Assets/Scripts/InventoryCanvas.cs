@@ -6,8 +6,7 @@ using UnityEngine.UI;
 
 public class InventoryCanvas : MonoBehaviour
 {
-    //public TMP_Text cheetosText;
-    //public TMP_Text heartsText;
+
     public TMP_Text blueHeartsText;
     public TMP_Text potionText;
     public TMP_Text mouseText;
@@ -16,8 +15,6 @@ public class InventoryCanvas : MonoBehaviour
     public Button mouseBtn;
     public Button reviveBtn;
 
-    int _hearts;
-    int _cheetos;
     int _blueHearts;
     int _potion;
     int _mouse;
@@ -26,14 +23,10 @@ public class InventoryCanvas : MonoBehaviour
 
     private void UpdateUI()
     {
-        _hearts = PlayerData.Instance.GetHearts();
-        _cheetos = PlayerData.Instance.GetCheetos();
         _blueHearts = PlayerData.Instance.GetBlueHearts();
         _potion = PlayerData.Instance.GetPotion();
         _mouse = PlayerData.Instance.GetMouse();
 
-        //heartsText.text = "" + _hearts;
-        //cheetosText.text = "" + _cheetos;
         blueHeartsText.text = "" + _blueHearts;
         potionText.text = "" + _potion;
         mouseText.text = "" + _mouse;
@@ -64,11 +57,6 @@ public class InventoryCanvas : MonoBehaviour
         _mouseCon.SpeedBoost();
         PlayerData.Instance.AddPotion(-1);
         UpdateUI();
-
-        //te sube la velocidad (por un tiempo?)
-        //desactivar el botton para que no se pueda tomar otra pocion hasta que termine el efecto
-
-
     }
 
     public void MouseButton()
@@ -76,9 +64,6 @@ public class InventoryCanvas : MonoBehaviour
         _mouseCon.SpawnDecoy();
         PlayerData.Instance.AddMouse(-1);
         UpdateUI();
-
-
-        //instancia mouse decoy
     }
 
 

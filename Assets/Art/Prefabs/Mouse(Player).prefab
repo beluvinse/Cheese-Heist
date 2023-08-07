@@ -5542,6 +5542,12 @@ MonoBehaviour:
   _decoyDuration: 15
   _decoySpawn: {fileID: 616646274}
   _inmune: {fileID: 6242059916677542881}
+  immuneLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  mouseLayer:
+    serializedVersion: 2
+    m_Bits: 128
   myAnim: {fileID: 4736284765637330848}
 --- !u!114 &1422016778415504685
 MonoBehaviour:

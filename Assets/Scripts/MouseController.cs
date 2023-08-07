@@ -49,12 +49,14 @@ public class MouseController : SteeringAgent
 
     public IEnumerator Revive()
     {
+        input = Vector3.zero;
         gameObject.SetActive(true);
-        gameObject.layer = 1 << 9;
+        gameObject.layer = LayerMask.NameToLayer("Inmune");
         _inmune.SetActive(true);
         yield return new WaitForSeconds(3);
         _inmune.SetActive(false);
-        gameObject.layer = 1 << 7;
+        gameObject.layer = LayerMask.NameToLayer("Mouse");
+
     }
 
     void FixedUpdate()
@@ -63,10 +65,9 @@ public class MouseController : SteeringAgent
         if (!_isRooted && !_isInWallHole) 
         {
             input = controller.GetMovementInput();
-            //transform.position += controller.GetMovementInput() * speed * Time.deltaTime;
             if (input != Vector3.zero)
             {
-                AddForce(controller.GetMovementInput() * _speed);
+                AddForce(input * _speed);
                 Move();
                 myAnim.SetBool("isMoving", true);
             }

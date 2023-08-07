@@ -8760,6 +8760,7 @@ MonoBehaviour:
   tutorialCanvas: {fileID: 1243285269}
   generalCanvas: {fileID: 788169216}
   bonusLevel: {fileID: 0}
+  _mouse: {fileID: 1888298870}
 --- !u!4 &1382340019
 Transform:
   m_ObjectHideFlags: 0
@@ -12015,6 +12016,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mouse(Player)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242059916677542881, guid: 4f9a96c7203d4fc498ac317884c1f552,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f9a96c7203d4fc498ac317884c1f552, type: 3}
