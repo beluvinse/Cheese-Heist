@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BonusLevel : MonoBehaviour
 {
 
     [SerializeField] float _timer;
-    [SerializeField] float _cuts;
+    [SerializeField] int _cuts;
     [SerializeField] GameObject _trail;
     [SerializeField] GameObject explosion;
     [SerializeField] GameObject Panel;
@@ -27,8 +28,8 @@ public class BonusLevel : MonoBehaviour
             isTimerRunning = false;
             GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
             explosion.SetActive(true);
-            explosion.transform.GetChild(0).GetComponent<TMP_Text>().text = "Ganaste " + _cuts + " Chetos!!";
-            Debug.Log("Ganaste " + _cuts + "Chetos!!");
+            explosion.transform.GetChild(0).GetComponent<TMP_Text>().text = "You won " + _cuts + " Chetos!!";
+            Debug.Log("You won " + _cuts + "Chetos!!");
         }
     }
 
@@ -62,11 +63,15 @@ public class BonusLevel : MonoBehaviour
                 {
                     _cuts++;
                     Debug.Log(_cuts);
+                    PlayerData.Instance.AddCheetos(1);
                     transform.localScale += new Vector3(0.1f, 0.05f, 0.1f);
                 }
             }
         }
     }
 
-   
+   public void BackToMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }    
 }

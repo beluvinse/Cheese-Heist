@@ -15,7 +15,7 @@ public class CanvasManager : MonoBehaviour
     public GameObject loseCanvas;
     public GameObject tutorialCanvas;
     public GameObject generalCanvas;
-    public GameObject bonusLevel;
+    //public GameObject bonusLevel;
 
     [SerializeField] MouseController _mouse;
 
@@ -105,8 +105,12 @@ public class CanvasManager : MonoBehaviour
         winCanvas.SetActive(true);
         generalCanvas.SetActive(false);
         Time.timeScale = 0f;
-       // var cheetos = PlayerData.Instance.GetCheetos() - _initialCheetos;
-       // cheetosText.text = cheetos.ToString();
+    }
+
+    public void BonusLevel()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("BonusLevel");
     }
 
     public void LoseCanvas()
