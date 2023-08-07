@@ -21,6 +21,8 @@ public class MouseController : SteeringAgent
     [SerializeField] float _decoyDuration;
     [SerializeField] Transform _decoySpawn;
 
+    [SerializeField] GameObject _inmune;
+
     private SpeedBoost _speedBoost;
     private DecoyMouse _decoyMouse;
 
@@ -41,8 +43,18 @@ public class MouseController : SteeringAgent
     public void OnDeath() { 
         OnLose?.Invoke();
         AudioManager.Instance.PlayMouseSound();
-        this.gameObject.SetActive(false);
+        gameObject.SetActive(false);
 
+    }
+
+    public IEnumerator Revive()
+    {
+        gameObject.SetActive(true);
+        gameObject.layer = 1 << 9;
+        _inmune.SetActive(true);
+        yield return new WaitForSeconds(3);
+        _inmune.SetActive(false);
+        gameObject.layer = 1 << 7;
     }
 
     void FixedUpdate()

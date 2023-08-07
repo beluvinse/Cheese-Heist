@@ -3883,37 +3883,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1e8531d3c65e404d9865576c33c7dae, type: 3}
---- !u!1 &616646273
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 616646274}
-  m_Layer: 7
-  m_Name: DecoySpawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &616646274
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 616646273}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.94, y: -0.34, z: 0.72}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1888298869}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &650674016
 GameObject:
   m_ObjectHideFlags: 0
@@ -8790,6 +8759,7 @@ MonoBehaviour:
   loseCanvas: {fileID: 499801006}
   tutorialCanvas: {fileID: 1243285269}
   generalCanvas: {fileID: 788169216}
+  bonusLevel: {fileID: 0}
 --- !u!4 &1382340019
 Transform:
   m_ObjectHideFlags: 0
@@ -11981,37 +11951,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 288951097}
     m_Modifications:
-    - target: {fileID: 1973124566412916086, guid: 4f9a96c7203d4fc498ac317884c1f552,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4736284765637330877, guid: 4f9a96c7203d4fc498ac317884c1f552,
-        type: 3}
-      propertyPath: _decoy
-      value: 
-      objectReference: {fileID: 2086080287457414945, guid: 52b0479eaa1347045b4955440395b3d4,
-        type: 3}
     - target: {fileID: 4736284765637330877, guid: 4f9a96c7203d4fc498ac317884c1f552,
         type: 3}
       propertyPath: controller
       value: 
       objectReference: {fileID: 334765150}
-    - target: {fileID: 4736284765637330877, guid: 4f9a96c7203d4fc498ac317884c1f552,
-        type: 3}
-      propertyPath: _decoySpawn
-      value: 
-      objectReference: {fileID: 616646274}
-    - target: {fileID: 4736284765637330877, guid: 4f9a96c7203d4fc498ac317884c1f552,
-        type: 3}
-      propertyPath: _decoyDuration
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4736284765637330877, guid: 4f9a96c7203d4fc498ac317884c1f552,
-        type: 3}
-      propertyPath: _speedBoostMulti
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 5057560643676479566, guid: 4f9a96c7203d4fc498ac317884c1f552,
         type: 3}
       propertyPath: m_RootOrder
