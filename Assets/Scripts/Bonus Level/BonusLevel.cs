@@ -28,7 +28,7 @@ public class BonusLevel : MonoBehaviour
             isTimerRunning = false;
             GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
             explosion.SetActive(true);
-            explosion.transform.GetChild(0).GetComponent<TMP_Text>().text = "You won " + _cuts + " Chetos!!";
+            explosion.transform.GetChild(0).GetComponent<TMP_Text>().text = "You won " + _cuts + " Cheetos!!";
             Debug.Log("You won " + _cuts + "Chetos!!");
         }
     }

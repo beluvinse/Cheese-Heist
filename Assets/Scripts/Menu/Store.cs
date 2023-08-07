@@ -29,18 +29,28 @@ public class Store : MonoBehaviour
     private void Update()
     {
         var cheetos = PlayerData.Instance.GetCheetos();
-        
-        if(cheetos < 10)
+
+        if (cheetos < 10)
             _1heartBtn.interactable = false;
+        else 
+            _1heartBtn.interactable = true;
 
         if (cheetos < 50)
         {
             _5heartBtn.interactable = false;
             _chestBtn.interactable = false;
         }
+        else
+        {
+            _5heartBtn.interactable = true;
+            _chestBtn.interactable = true;
+        }
 
         if (cheetos < 80)
             _20heartBtn.interactable = false;
+        else
+            _20heartBtn.interactable = true;
+
 
     }
 
@@ -48,7 +58,6 @@ public class Store : MonoBehaviour
     {
         GetData();
 
-        //if(_hearts < _maxHearts && _cheetos >= 10)
         if(_cheetos >= 10)
         {
             PlayerData.Instance.AddHearts(1);
@@ -63,7 +72,6 @@ public class Store : MonoBehaviour
     {
         GetData();
 
-        //if (_hearts < _maxHearts && _cheetos >= 50)
         if (_cheetos >= 50)
         {
             PlayerData.Instance.AddHearts(5);
@@ -77,7 +85,6 @@ public class Store : MonoBehaviour
     {
         GetData();
 
-        //if (_hearts < _maxHearts && _cheetos >= 80)
         if (_cheetos >= 80)
         {
             PlayerData.Instance.AddHearts(20);
@@ -86,6 +93,4 @@ public class Store : MonoBehaviour
             uiManager.UpdateHearts();
         }
     }
-
-    
 }

@@ -49,6 +49,6 @@ public class NotificationManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        DisplayNotification("Cheese Heist misses you!", "Hey there, sneaky cheese thief! The mice in Cheese Heist miss your expert heisting skills! ", DateTime.Now.AddSeconds(30));
+        DisplayNotification("Cheese Heist misses you!", "Hey there, sneaky cheese thief! The mice in Cheese Heist miss your expert heisting skills!", DateTime.Now.AddSeconds(30));
     }
 }
